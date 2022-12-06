@@ -13,7 +13,7 @@ const Dialog = (props) => {
             <View>{children}</View>
             {type === '1 opt' ? (
                 <CustomButton
-                    type={user}
+                    type={user ? user : 'accent'}
                     size={size}
                     shape='square'
                     title={okText}
@@ -22,7 +22,7 @@ const Dialog = (props) => {
             ) : (
                 <DoubleButtons
                     size={size}
-                    type={user}
+                    type={user ? user : 'accent'}
                     onOk={onOk}
                     onCancel={onCancel}
                     okText={okText}

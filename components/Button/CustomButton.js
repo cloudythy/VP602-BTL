@@ -3,7 +3,7 @@ import { Pressable, Text, StyleSheet, View } from 'react-native';
 import { COLOR } from '../../constants';
 
 export default function CustomButton(props) {
-    const { type, size, shape, title, onPress } = props;
+    const { type, size, shape, title, onPress, style } = props;
     const pressHandler = () => {
         onPress();
     };
@@ -68,9 +68,9 @@ export default function CustomButton(props) {
     const { color, height, disable } = buttonStyleHandler(type, size, shape);
 
     return (
-        <View>
+        <View style={styles.container}>
             <Pressable
-                style={buttonStyleHandler(type, size, shape)}
+                style={[buttonStyleHandler(type, size, shape), style]}
                 disable={disable}
                 onPress={pressHandler}>
                 <Text
@@ -85,3 +85,9 @@ export default function CustomButton(props) {
         </View>
     );
 }
+const styles = StyleSheet.create({
+    container: {
+        justifyContent: 'center',
+        textAlign: 'center',
+    },
+});
