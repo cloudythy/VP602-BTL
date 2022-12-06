@@ -45,7 +45,7 @@ export default function CustomButton(props) {
                 height = 40;
                 break;
             case 'small':
-                height = 40;
+                height = 36;
                 break;
             default:
                 height = 36;
@@ -59,7 +59,7 @@ export default function CustomButton(props) {
                 borderRadius = 50;
                 break;
             default:
-                borderRadius = 50;
+                borderRadius = 6;
                 break;
         }
         return { color, backgroundColor, height, borderRadius, disable };
