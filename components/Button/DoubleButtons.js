@@ -29,7 +29,7 @@ const DoubleButtons = (props) => {
 export default DoubleButtons;
 const styles = StyleSheet.create({
     button: {
-        width: 100,
+        // width: 100,
         margin: 10,
     },
     doubleButtons: {
