@@ -1,6 +1,6 @@
 import React from 'react';
 import { Pressable, Text, StyleSheet, View } from 'react-native';
-import { COLOR } from '../constants';
+import { COLOR } from '../../constants';
 import CustomButton from './CustomButton';
 
 const DoubleButtons = (props) => {

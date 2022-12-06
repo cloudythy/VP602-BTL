@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet } from 'react-native';
-import CustomButton from '../components/CustomButton';
+import CustomButton from '../components/Button/CustomButton';
 export default function WelcomeScreen() {
     return (
         <View style={styles.container}>

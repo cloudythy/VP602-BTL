@@ -1,6 +1,6 @@
 import React from 'react';
 import { Pressable, Text, StyleSheet, View } from 'react-native';
-import { COLOR } from '../constants';
+import { COLOR } from '../../constants';
 
 export default function CustomButton(props) {
     const { type, size, shape, title, onPress } = props;
