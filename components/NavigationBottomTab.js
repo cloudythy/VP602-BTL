@@ -46,8 +46,8 @@ export default function NavigationBottom()
 					options = {{
 						tabBarIcon: ({focused, color, size}) => ( 
 							<NavigationButtonIcons 
-									name = {'home-outline'} 
-									focusedName = {'home-outline'} 
+									name = {'home'} 
+									focusedName = {'home'} 
 									focused = {focused}
 									color = {color}
 									size = {size}/>
@@ -57,7 +57,7 @@ export default function NavigationBottom()
 				/>
 				<Tab.Screen 
 					name = {global.notificationScreen} 
-					component = {HomeScreen}
+					component = {NotificationScreen}
 					options = {{
 						tabBarIcon: ({focused, color, size}) => ( 
 							<NavigationButtonIcons 
@@ -72,7 +72,7 @@ export default function NavigationBottom()
 				/>
 				<Tab.Screen 
 					name = {global.userInfoScreen} 
-					component = {HomeScreen}
+					component = {UserInfoScreen}
 					options = {{
 						tabBarLabel: 'Tải văn bản',
 						tabBarIcon: ({focused, color, size}) => ( 

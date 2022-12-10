@@ -11,13 +11,10 @@ const HomeScreenButton = (props) => {
     return (
         <Background style={{ width: 179 }}>
             <Pressable style={styles.container} onPress={pressHandler}>
-                <View style={{ height: 154 }}>
-                    <Image
-                        source={require(`../../images/${image}`)}
-                        style={([styles.image], { imageStyle })}
-                    />
+                <View style={styles.image}>
+                    {image}
                 </View>
-                <Text style={{ color: COLOR.user.primaryShade[300] }}>
+                <Text style={styles.text}>
                     {name}
                 </Text>
             </Pressable>
@@ -29,10 +26,18 @@ const styles = StyleSheet.create({
     container: {
         width: 179,
         height: 193,
+        backgroundColor: 'white',
+        borderRadius: 20
     },
     image: {
-        paddingLeft: 5,
-        paddingRight: 5,
+        lignItems: 'center',
+		justifyContent: 'center',
+        height: 154,
+        paddingLeft: '15%',
     },
+    text: {
+        paddingLeft: '10%',
+        color: '#87670E'
+    }
 });
 export default HomeScreenButton;

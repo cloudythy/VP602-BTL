@@ -1,6 +1,6 @@
 import React from 'react';
 import { Pressable, Text, StyleSheet, View } from 'react-native';
-import { COLOR } from '../../constants';
+import { COLOR } from '../constants';
 
 const Background = (props) => {
     const { children, style } = props;
@@ -18,7 +18,6 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.2,
         shadowRadius: 1.41,
-        padding: 10,
         margin: 10,
         backgroundColor: COLOR.common.lightGrey,
     },

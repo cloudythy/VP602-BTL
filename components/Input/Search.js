@@ -2,14 +2,14 @@ import { TextInput, View, Text } from "react-native";
 import { StyleSheet } from "react-native";
 import { COLOR } from "../../constants";
 import CustomButton from "../Button/CustomButton";
-// import { Ionicons } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 
 const Search = (props) => {
   const { user } = props;
   const pressHandler = () => {};
   return (
     <View style={styles.container}>
-      {/* Cho nay bo icon search the vo nhe */}
+      <Ionicons name = 'search-outline' size = {25}/>
       <Text style={styles.icon}>I</Text>
       <TextInput style={styles.input} placeholder="Search" />
       {/* Cai nay co icon filter nua */}
@@ -21,7 +21,8 @@ const Search = (props) => {
 const styles = StyleSheet.create({
   container: {
     display: "flex",
-    flexDirection: "row"
+    flexDirection: "row",
+    paddingTop: '10%'
   },
   icon: {
     width: 40,

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Pressable, Text, StyleSheet, View } from 'react-native';
-import { COLOR } from '../../../constants';
+import { COLOR } from '../../constants';
 import Background from '../Background';
 
 const LatePaymentNotification = (props) => {
@@ -13,7 +13,7 @@ const LatePaymentNotification = (props) => {
                     <View style={styles.wrapper}>
                         <Text style={styles.title}>Late payment</Text>
                         <View>
-                            <Text style={styles.text}>{date}</Text>
+                            <Text style={styles.text}>abcde</Text>
                             <Text style={styles.text}>{time}</Text>
                         </View>
                     </View>

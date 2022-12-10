@@ -39,6 +39,7 @@ export default function CustomButton(props) {
         }
         switch (size) {
             case 'big':
+                width = 300;
                 height = 44;
                 break;
             case 'medium':
@@ -89,5 +90,6 @@ const styles = StyleSheet.create({
     container: {
         justifyContent: 'center',
         textAlign: 'center',
+        marginTop: '2%'
     },
 });

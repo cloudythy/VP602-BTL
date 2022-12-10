@@ -36,7 +36,7 @@ const NormalRoomInfo = (props) => {
                         (+) Deposit: {deposit} VND
                     </Text>
                 </View>
-                <View
+                {/* <View
                     style={[styles.wrapper, { justifyContent: 'flex-start' }]}>
                     {service.map((item) => {
                         return (
@@ -45,7 +45,7 @@ const NormalRoomInfo = (props) => {
                             </View>
                         );
                     })}
-                </View>
+                </View> */}
             </View>
         </View>
     );
@@ -84,7 +84,7 @@ const SmallRoomInfo = (props) => {
         </View>
     );
 };
-const RoomInfo = (props) => {
+function RoomInfo (props) {
     const {
         type,
         name,

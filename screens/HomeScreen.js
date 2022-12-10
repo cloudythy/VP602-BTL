@@ -1,10 +1,59 @@
-import { View, Text, StyleSheet } from 'react-native';
-import CustomButton from '../components/Button/CustomButton';
-import InDeNumber from '../components/Input/InDeNumber';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import Search from '../components/Input/Search';
+import RoomInfo from '../components/ComplexComponent/Room/RoomInfo';
 export default function HomeScreen() {
     return (
         <View style={styles.container}>
-            <InDeNumber />
+            <Search/>
+            <ScrollView>
+                <RoomInfo
+                    type = "normal"
+                    name = "NewTower"
+                    price = "3.000.000"
+                    address = "Hocmon"
+                    numOfRooms = "3"
+                    numOfPeople = "4"
+                    deposit = "100"
+    
+
+                />
+                <RoomInfo
+                    type = "normal"
+                    name = "NewTower"
+                    price = "3.000.000"
+                    address = "Hocmon"
+                    numOfRooms = "3"
+                    numOfPeople = "4"
+                    deposit = "100"
+    
+
+                />
+                <RoomInfo
+                    type = "normal"
+                    name = "NewTower"
+                    price = "3.000.000"
+                    address = "Hocmon"
+                    numOfRooms = "3"
+                    numOfPeople = "4"
+                    deposit = "100"
+    
+
+                />
+                <RoomInfo
+                    type = "normal"
+                    name = "NewTower"
+                    price = "3.000.000"
+                    address = "Hocmon"
+                    numOfRooms = "3"
+                    numOfPeople = "4"
+                    deposit = "100"
+    
+
+                />
+                
+                    
+
+            </ScrollView>
         </View>
     );
 }
