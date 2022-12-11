@@ -1,12 +1,12 @@
 import React from 'react';
 import { Pressable, Text, StyleSheet, Image, View } from 'react-native';
-import { COLOR } from '../../constants';
-import Background from '../Background';
-import CustomButton from '../Button/CustomButton';
-import PaymentOption from '../Button/PaymentOptions';
-import RoomInfo from '../ComplexComponent/Room/RoomInfo';
+import { COLOR } from '../../../constants';
+import Background from '../../Background';
+import CustomButton from '../../Button/CustomButton';
+import PaymentOption from '../../Button/PaymentOptions';
+import RoomInfo from '../../ComplexComponent/Room/RoomInfo';
 import TenantInfo from '../ComplexComponent/TenantInfo';
-import Dialog from './Dialog';
+import Dialog from '../Dialog';
 
 const RecheckPaymentDialog = props => {
     const { onOk, onCancel, roomInfo, tenantInfo, totalBill } = props;
