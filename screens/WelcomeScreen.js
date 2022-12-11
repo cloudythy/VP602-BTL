@@ -14,15 +14,16 @@ export default function WelcomeScreen() {
             {/* <View style={styles.container}>
                 <Image source={require('../images/Logo.png')} style={styles.image} scale = 'scale'/>
             </View> */}
+            <Text style={styles.text}>Xin chào, Ngô Diễm Quỳnh </Text>
             
             <Background>
                 <View style={styles.rowButton}>
-                    <HomeScreenButton name='My room' image={image[0]}/>
-                    <HomeScreenButton name='My electric&water' image={image[1]}/>
+                    <HomeScreenButton name='My room' image={image[0]} onPress={()=>console.log("abc")}/>
+                    <HomeScreenButton name='My electric&water' image={image[1]}  onPress={()=>console.log("abcd")}/>
                 </View>
                 <View style={styles.rowButton}>
-                    <HomeScreenButton name='My service'image={image[2]}/>
-                    <HomeScreenButton name='My bill' image={image[3]}/>
+                    <HomeScreenButton name='My service'image={image[2]}  onPress={()=>console.log("abce")}/>
+                    <HomeScreenButton name='My bill' image={image[3]}  onPress={()=>console.log("abcf")}/>
                 </View>
                 
                 
@@ -44,5 +45,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around',
         paddingVertical: '30%',
+    },
+    text: {
+        marginTop: '40%',
+        marginLeft: '10%',
+        fontSize: 18,
     }
 });

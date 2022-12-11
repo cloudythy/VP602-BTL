@@ -1,13 +1,16 @@
 import React from 'react';
-import { Image, Text, StyleSheet, View } from 'react-native';
+import { Image, Text, StyleSheet, View , Pressable} from 'react-native';
 import { COLOR } from '../../../constants';
 import Background from '../../Background';
 
 const NormalRoomInfo = (props) => {
-    const { name, price, address, numOfRooms, numOfPeople, deposit, service } =
+    const { name, price, address, numOfRooms, numOfPeople, deposit, service, onPress } =
         props;
+    const pressHandler = () => {
+        onPress();
+    };
     return (
-        <View>
+        <Pressable onPress={pressHandler}>
             <View style={styles.normal.image}>
                 <Image
                     resizeMode='cover'
@@ -47,14 +50,17 @@ const NormalRoomInfo = (props) => {
                     })}
                 </View> */}
             </View>
-        </View>
+        </Pressable>
     );
 };
 
 const SmallRoomInfo = (props) => {
+    const pressHandler = () => {
+        onPress();
+    };
     const { name, price, address, deposit } = props;
     return (
-        <View style={{ display: 'flex', flexDirection: 'row' }}>
+        <Pressable style={{ display: 'flex', flexDirection: 'row' }} onPress={pressHandler}>
             <View style={styles.small.image}>
                 <Image
                     resizeMode='cover'
@@ -81,7 +87,7 @@ const SmallRoomInfo = (props) => {
                     </Text>
                 </View>
             </View>
-        </View>
+        </Pressable>
     );
 };
 function RoomInfo (props) {
@@ -94,6 +100,7 @@ function RoomInfo (props) {
         numOfPeople,
         deposit,
         service,
+        onPress
     } = props;
     return (
         <Background style={styles.container}>
@@ -106,6 +113,7 @@ function RoomInfo (props) {
                     numOfPeople={numOfPeople}
                     deposit={deposit}
                     service={service}
+                    onPress={onPress}
                 />
             ) : (
                 <SmallRoomInfo
@@ -113,6 +121,7 @@ function RoomInfo (props) {
                     price={price}
                     address={address}
                     deposit={deposit}
+                    onPress={onPress}
                 />
             )}
         </Background>

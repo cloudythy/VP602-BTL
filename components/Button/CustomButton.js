@@ -13,6 +13,7 @@ export default function CustomButton(props) {
         let backgroundColor;
         let height;
         let borderRadius;
+        let marginBottom;
         switch (type) {
             case 'neutral':
                 backgroundColor = '#EAEDF0';
@@ -33,14 +34,17 @@ export default function CustomButton(props) {
                 backgroundColor = COLOR.admin.primary;
                 color = '#ffffff';
                 break;
+            case 'important':
+                backgroundColor = '#FDC52B';
+                
+                break;
             default:
                 backgroundColor = '#EAEDF0';
                 break;
         }
         switch (size) {
             case 'big':
-                width = 300;
-                height = 44;
+                height = 55;
                 break;
             case 'medium':
                 height = 40;
@@ -78,7 +82,9 @@ export default function CustomButton(props) {
                     style={{
                         color: color,
                         lineHeight: height - 40,
-                        padding: 20,
+                        textAlign: 'center',
+                        paddingTop: '4%',
+                        paddingHorizontal: '15%'
                     }}>
                     {title}
                 </Text>
@@ -90,6 +96,6 @@ const styles = StyleSheet.create({
     container: {
         justifyContent: 'center',
         textAlign: 'center',
-        marginTop: '2%'
+        marginTop: '2%',
     },
 });
