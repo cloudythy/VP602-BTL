@@ -1,6 +1,6 @@
-import React from 'react';
-import { Pressable, Text, StyleSheet, View } from 'react-native';
-import { COLOR } from '../../constants';
+import React from "react";
+import { Pressable, Text, StyleSheet, View } from "react-native";
+import { COLOR } from "../../constants";
 
 export default function CustomButton(props) {
     const { type, size, shape, title, onPress, style } = props;
@@ -70,7 +70,7 @@ export default function CustomButton(props) {
         return { color, backgroundColor, height, borderRadius, disable };
     };
 
-    const { color, height, disable } = buttonStyleHandler(type, size, shape);
+  const { color, height, disable } = buttonStyleHandler(type, size, shape);
 
     return (
         <View style={styles.container}>

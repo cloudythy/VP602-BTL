@@ -128,74 +128,74 @@ function RoomInfo (props) {
     );
 };
 const styles = StyleSheet.create({
-    container: {
-        padding: 0,
-        flex: 1,
+  container: {
+    padding: 0,
+    flex: 1
+  },
+
+  wrapper: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingTop: 5,
+    paddingBottom: 5
+    // color: COLOR.common.darkGrey
+  },
+  normal: {
+    image: {
+      height: 200,
+      backgroundColor: COLOR.common.grey
+    },
+    text: {
+      color: COLOR.common.darkGrey,
+      paddingRight: 10,
+      fontSize: 13
+    },
+    info: {
+      padding: 10
+    },
+    title: {
+      color: COLOR.common.darkGrey,
+      fontWeight: 600,
+      fontSize: 20,
+      paddingBottom: 3
     },
 
-    wrapper: {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        paddingTop: 5,
-        paddingBottom: 5,
-        // color: COLOR.common.darkGrey
+    price: {
+      fontWeight: "bold",
+      color: COLOR.user.primaryShade[200]
     },
-    normal: {
-        image: {
-            height: 200,
-            backgroundColor: COLOR.common.grey,
-        },
-        text: {
-            color: COLOR.common.darkGrey,
-            paddingRight: 10,
-            fontSize: 13,
-        },
-        info: {
-            padding: 10,
-        },
-        title: {
-            color: COLOR.common.darkGrey,
-            fontWeight: 600,
-            fontSize: 20,
-            paddingBottom: 3,
-        },
-
-        price: {
-            fontWeight: 'bold',
-            color: COLOR.user.primaryShade[200],
-        },
-        address: {
-            fontSize: 13,
-            color: COLOR.user.primaryShade[200],
-        },
-        serviceItems: {
-            backgroundColor: COLOR.common.grey,
-            padding: 5,
-            paddingLeft: 15,
-            borderRadius: 50,
-            marginRight: 5,
-        },
+    address: {
+      fontSize: 13,
+      color: COLOR.user.primaryShade[200]
     },
-    small: {
-        image: {
-            height: 80,
-            width: 80,
-            backgroundColor: COLOR.common.grey,
-        },
-        info: {
-            flex: 1,
-            padding: 10,
-        },
-        title: {
-            fontSize: 12,
-            fontWeight: 500,
-        },
-        text: {
-            fontSize: 10,
-            padding: 3,
-            color: COLOR.common.darkGrey,
-        },
+    serviceItems: {
+      backgroundColor: COLOR.common.grey,
+      padding: 5,
+      paddingLeft: 15,
+      borderRadius: 50,
+      marginRight: 5
+    }
+  },
+  small: {
+    image: {
+      height: "100%",
+      width: 80,
+      backgroundColor: COLOR.common.grey
     },
+    info: {
+      flex: 1,
+      padding: 10
+    },
+    title: {
+      fontSize: 12,
+      fontWeight: 500
+    },
+    text: {
+      fontSize: 10,
+      padding: 3,
+      color: COLOR.common.darkGrey
+    }
+  }
 });
 export default RoomInfo;
