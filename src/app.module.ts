@@ -9,6 +9,7 @@ import { join } from 'path/posix';
 import { ElectricInvoiceModule } from './modules/electric-invoice/electric-invoice.module';
 import { WaterInvoiceModule } from './modules/water-invoice/water-invoice.module';
 import { RoomModule } from './modules/room/room.module';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
@@ -22,7 +23,8 @@ import { RoomModule } from './modules/room/room.module';
     }),
     ElectricInvoiceModule,
     WaterInvoiceModule,
-    RoomModule
+    RoomModule,
+    AuthModule
   ],
   controllers: [],
   providers: [AppService],
