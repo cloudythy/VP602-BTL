@@ -54,10 +54,10 @@ export class ElectricInvoiceController {
     return response.status(HttpStatus.OK).json(eInvoice);
   }
 
-  @Post("/delete")
-  async deleteOne(@Body() eInvoice: ElectricInvoice, @Res() response): Promise<any>{
-    console.log(eInvoice);
-    await this.eInvocieService.deleteOne(eInvoice);
+  @Get("/delete/:id")
+  async deleteOne(@Req() request, @Res() response): Promise<any>{
+    //console.log(eInvoice);
+    await this.eInvocieService.deleteOne(request.params.id);
     return response.status(HttpStatus.OK).json();
   }
 }

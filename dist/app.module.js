@@ -15,6 +15,8 @@ const app_service_1 = require("./app.service");
 const constants_1 = require("./utils/constants");
 const posix_1 = require("path/posix");
 const electric_invoice_module_1 = require("./modules/electric-invoice/electric-invoice.module");
+const water_invoice_module_1 = require("./modules/water-invoice/water-invoice.module");
+const room_module_1 = require("./modules/room/room.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -28,7 +30,9 @@ AppModule = __decorate([
             serve_static_1.ServeStaticModule.forRoot({
                 rootPath: (0, posix_1.join)(__dirname, '..', 'public'),
             }),
-            electric_invoice_module_1.ElectricInvoiceModule
+            electric_invoice_module_1.ElectricInvoiceModule,
+            water_invoice_module_1.WaterInvoiceModule,
+            room_module_1.RoomModule
         ],
         controllers: [],
         providers: [app_service_1.AppService],

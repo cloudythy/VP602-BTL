@@ -12,20 +12,20 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ElectricInvoiceController = void 0;
+exports.WaterInvoiceController = void 0;
 const common_1 = require("@nestjs/common");
-const electric_invoice_schema_1 = require("../../schemas/electric-invoice.schema");
-const electric_invoice_service_1 = require("../../service/electric-invoice.service");
-let ElectricInvoiceController = class ElectricInvoiceController {
-    constructor(eInvocieService) {
-        this.eInvocieService = eInvocieService;
+const water_invoice_schema_1 = require("../../schemas/water-invoice.schema");
+const water_invoice_service_1 = require("../../service/water-invoice.service");
+let WaterInvoiceController = class WaterInvoiceController {
+    constructor(waterInvocieService) {
+        this.waterInvocieService = waterInvocieService;
     }
-    async createInvoice(eInvoice, response) {
-        console.log(eInvoice);
+    async creatWaterInvoice(waterInvoice, response) {
+        console.log(water_invoice_schema_1.WaterInvoice);
         try {
-            await this.eInvocieService.createEInvoice(eInvoice);
+            await this.waterInvocieService.createWaterInvoice(waterInvoice);
             return response.status(common_1.HttpStatus.CREATED).json({
-                eInvoice,
+                waterInvoice,
             });
         }
         catch (error) {
@@ -35,21 +35,23 @@ let ElectricInvoiceController = class ElectricInvoiceController {
         }
     }
     async getAll(response) {
-        const eInvoiceList = await this.eInvocieService.getAll();
-        return response.status(common_1.HttpStatus.OK).json(eInvoiceList);
+        const WaterInvoiceList = await this.waterInvocieService.getAll();
+        return response.status(common_1.HttpStatus.OK).json(WaterInvoiceList);
     }
     async getOne(response, request) {
         const id = request.params.id;
-        const eInvoice = await this.eInvocieService.getOne(id);
-        return response.status(common_1.HttpStatus.OK).json(eInvoice);
+        const waterInvoice = await this.waterInvocieService.getOne(id);
+        return response.status(common_1.HttpStatus.OK).json(waterInvoice);
     }
-    async updateOne(eInvoice, response) {
-        await this.eInvocieService.updateOne(eInvoice);
-        return response.status(common_1.HttpStatus.OK).json(eInvoice);
+    async updateOne(waterInvoice, response) {
+        await this.waterInvocieService.updateOne(waterInvoice);
+        return response.status(common_1.HttpStatus.OK).json(waterInvoice);
     }
     async deleteOne(request, response) {
-        await this.eInvocieService.deleteOne(request.params.id);
-        return response.status(common_1.HttpStatus.OK).json();
+        await this.waterInvocieService.deleteOne(request.params.id);
+        return response.status(common_1.HttpStatus.OK).json({
+            "message": "OK"
+        });
     }
 };
 __decorate([
@@ -57,16 +59,16 @@ __decorate([
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_1.Res)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [electric_invoice_schema_1.ElectricInvoice, Object]),
+    __metadata("design:paramtypes", [water_invoice_schema_1.WaterInvoice, Object]),
     __metadata("design:returntype", Promise)
-], ElectricInvoiceController.prototype, "createInvoice", null);
+], WaterInvoiceController.prototype, "creatWaterInvoice", null);
 __decorate([
     (0, common_1.Get)("/all"),
     __param(0, (0, common_1.Res)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
-], ElectricInvoiceController.prototype, "getAll", null);
+], WaterInvoiceController.prototype, "getAll", null);
 __decorate([
     (0, common_1.Get)("/get/:id"),
     __param(0, (0, common_1.Res)()),
@@ -74,15 +76,15 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object]),
     __metadata("design:returntype", Promise)
-], ElectricInvoiceController.prototype, "getOne", null);
+], WaterInvoiceController.prototype, "getOne", null);
 __decorate([
     (0, common_1.Patch)("/update"),
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_1.Res)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [electric_invoice_schema_1.ElectricInvoice, Object]),
+    __metadata("design:paramtypes", [water_invoice_schema_1.WaterInvoice, Object]),
     __metadata("design:returntype", Promise)
-], ElectricInvoiceController.prototype, "updateOne", null);
+], WaterInvoiceController.prototype, "updateOne", null);
 __decorate([
     (0, common_1.Get)("/delete/:id"),
     __param(0, (0, common_1.Req)()),
@@ -90,10 +92,10 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object]),
     __metadata("design:returntype", Promise)
-], ElectricInvoiceController.prototype, "deleteOne", null);
-ElectricInvoiceController = __decorate([
-    (0, common_1.Controller)("/api/v1/einvoice"),
-    __metadata("design:paramtypes", [electric_invoice_service_1.EInvoiceService])
-], ElectricInvoiceController);
-exports.ElectricInvoiceController = ElectricInvoiceController;
-//# sourceMappingURL=electric-invoice.controller.js.map
+], WaterInvoiceController.prototype, "deleteOne", null);
+WaterInvoiceController = __decorate([
+    (0, common_1.Controller)("/api/v1/waterInvoice"),
+    __metadata("design:paramtypes", [water_invoice_service_1.WaterInvoiceService])
+], WaterInvoiceController);
+exports.WaterInvoiceController = WaterInvoiceController;
+//# sourceMappingURL=water-invoice.controller.js.map

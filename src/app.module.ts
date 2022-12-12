@@ -8,6 +8,7 @@ import { secret } from './utils/constants';
 import { join } from 'path/posix';
 import { ElectricInvoiceModule } from './modules/electric-invoice/electric-invoice.module';
 import { WaterInvoiceModule } from './modules/water-invoice/water-invoice.module';
+import { RoomModule } from './modules/room/room.module';
 
 @Module({
   imports: [
@@ -20,7 +21,8 @@ import { WaterInvoiceModule } from './modules/water-invoice/water-invoice.module
       rootPath: join(__dirname, '..', 'public'),
     }),
     ElectricInvoiceModule,
-    WaterInvoiceModule
+    WaterInvoiceModule,
+    RoomModule
   ],
   controllers: [],
   providers: [AppService],

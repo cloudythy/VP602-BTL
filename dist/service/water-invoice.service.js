@@ -12,18 +12,18 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.EInvoiceService = void 0;
+exports.WaterInvoiceService = void 0;
 const common_1 = require("@nestjs/common");
 const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = require("mongoose");
-const electric_invoice_schema_1 = require("../schemas/electric-invoice.schema");
-let EInvoiceService = class EInvoiceService {
-    constructor(eInvoiceModel) {
-        this.eInvoiceModel = eInvoiceModel;
+const Water_invoice_schema_1 = require("../schemas/Water-invoice.schema");
+let WaterInvoiceService = class WaterInvoiceService {
+    constructor(waterInvoiceModel) {
+        this.waterInvoiceModel = waterInvoiceModel;
     }
-    async createEInvoice(eInvoice) {
+    async createWaterInvoice(eInvoice) {
         try {
-            await this.eInvoiceModel.create(eInvoice);
+            await this.waterInvoiceModel.create(eInvoice);
         }
         catch (error) {
             console.log(error);
@@ -31,22 +31,22 @@ let EInvoiceService = class EInvoiceService {
         }
     }
     async getAll() {
-        return await this.eInvoiceModel.find({}, { _id: 1, name: 1, status: 1 });
+        return await this.waterInvoiceModel.find({}, { _id: 1, name: 1, status: 1 });
     }
     async getOne(id) {
-        return await this.eInvoiceModel.findById(id);
+        return await this.waterInvoiceModel.findById(id);
     }
-    async updateOne(eInvoice) {
-        await this.eInvoiceModel.updateOne(eInvoice);
+    async updateOne(waterInvoice) {
+        await this.waterInvoiceModel.updateOne(waterInvoice);
     }
     async deleteOne(id) {
-        await this.eInvoiceModel.deleteOne({ _id: id });
+        await this.waterInvoiceModel.deleteOne({ _id: id });
     }
 };
-EInvoiceService = __decorate([
+WaterInvoiceService = __decorate([
     (0, common_1.Injectable)(),
-    __param(0, (0, mongoose_1.InjectModel)(electric_invoice_schema_1.ElectricInvoice.name)),
+    __param(0, (0, mongoose_1.InjectModel)(Water_invoice_schema_1.WaterInvoice.name)),
     __metadata("design:paramtypes", [mongoose_2.Model])
-], EInvoiceService);
-exports.EInvoiceService = EInvoiceService;
-//# sourceMappingURL=electric-invoice.service.js.map
+], WaterInvoiceService);
+exports.WaterInvoiceService = WaterInvoiceService;
+//# sourceMappingURL=water-invoice.service.js.map

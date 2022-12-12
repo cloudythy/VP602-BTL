@@ -23,10 +23,10 @@
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose/types/inferschematype" />
 import { HydratedDocument, Schema as MongooseSchema } from "mongoose";
-import { User } from "./user.schema";
 export type RoomDocument = HydratedDocument<Room>;
 export declare class Room {
     buildingName: string;
+    name: string;
     address: string;
     status: boolean;
     type: string;
@@ -35,6 +35,5 @@ export declare class Room {
     numOfBedrooms: number;
     capacity: number;
     advantages: Record<string, any>;
-    owner: User;
 }
 export declare const RoomSchema: MongooseSchema<Room, import("mongoose").Model<Room, any, any, any, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Room>;

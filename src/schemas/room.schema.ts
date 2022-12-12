@@ -10,6 +10,9 @@ export class Room {
 buildingName: string;
 
 @Prop()
+name: string;
+
+@Prop()
 address: string;
 
 @Prop()
@@ -32,18 +35,16 @@ capacity: number;
 
 @Prop(
 	raw({
-	wifi: { type: Boolean },
-	waterHeater: { type: Boolean },
-	AC: { type: Boolean },
-	garden: { type: Boolean },
-	nearSchool: { type: Boolean },
-	nearHospital: { type: Boolean },
+	wifi: { type: Boolean, default: false },
+	waterHeater: { type: Boolean, default: false },
+	AC: { type: Boolean, default: false },
+	garden: { type: Boolean, default: false },
+	nearSchool: { type: Boolean, default: false },
+	nearHospital: { type: Boolean, default: false },
 	})
 )
 advantages: Record<string, any>;
 
-@Prop({ type: UserSchema })
-owner: User;
 }
 
 export const RoomSchema = SchemaFactory.createForClass(Room);

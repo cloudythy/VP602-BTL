@@ -12,41 +12,36 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.EInvoiceService = void 0;
+exports.RoomService = void 0;
 const common_1 = require("@nestjs/common");
 const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = require("mongoose");
-const electric_invoice_schema_1 = require("../schemas/electric-invoice.schema");
-let EInvoiceService = class EInvoiceService {
-    constructor(eInvoiceModel) {
-        this.eInvoiceModel = eInvoiceModel;
+const room_schema_1 = require("../schemas/room.schema");
+let RoomService = class RoomService {
+    constructor(roomModel) {
+        this.roomModel = roomModel;
     }
-    async createEInvoice(eInvoice) {
-        try {
-            await this.eInvoiceModel.create(eInvoice);
-        }
-        catch (error) {
-            console.log(error);
-            throw error;
-        }
+    ;
+    async createRoom(room) {
+        await this.roomModel.create(room);
     }
     async getAll() {
-        return await this.eInvoiceModel.find({}, { _id: 1, name: 1, status: 1 });
+        return await this.roomModel.find();
     }
     async getOne(id) {
-        return await this.eInvoiceModel.findById(id);
+        return await this.roomModel.findById(id);
     }
-    async updateOne(eInvoice) {
-        await this.eInvoiceModel.updateOne(eInvoice);
+    async updateRoom(room) {
+        await this.roomModel.findByIdAndUpdate(room._id, room);
     }
-    async deleteOne(id) {
-        await this.eInvoiceModel.deleteOne({ _id: id });
+    async deleteRoom(room) {
+        await this.roomModel.deleteOne({ _id: room._id });
     }
 };
-EInvoiceService = __decorate([
+RoomService = __decorate([
     (0, common_1.Injectable)(),
-    __param(0, (0, mongoose_1.InjectModel)(electric_invoice_schema_1.ElectricInvoice.name)),
+    __param(0, (0, mongoose_1.InjectModel)(room_schema_1.Room.name)),
     __metadata("design:paramtypes", [mongoose_2.Model])
-], EInvoiceService);
-exports.EInvoiceService = EInvoiceService;
-//# sourceMappingURL=electric-invoice.service.js.map
+], RoomService);
+exports.RoomService = RoomService;
+//# sourceMappingURL=room.service.js.map

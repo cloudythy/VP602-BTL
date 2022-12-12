@@ -7,5 +7,5 @@ export declare class ElectricInvoiceController {
     getAll(response: any): Promise<ElectricInvoice[]>;
     getOne(response: any, request: any): Promise<ElectricInvoice>;
     updateOne(eInvoice: ElectricInvoice, response: any): Promise<ElectricInvoice>;
-    deleteOne(eInvoice: ElectricInvoice, response: any): Promise<any>;
+    deleteOne(request: any, response: any): Promise<any>;
 }

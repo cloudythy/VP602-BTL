@@ -7,5 +7,5 @@ export declare class EInvoiceService {
     getAll(): Promise<ElectricInvoice[]>;
     getOne(id: Object): Promise<ElectricInvoice>;
     updateOne(eInvoice: ElectricInvoice): Promise<void>;
-    deleteOne(eInvoice: any): Promise<void>;
+    deleteOne(id: string): Promise<void>;
 }

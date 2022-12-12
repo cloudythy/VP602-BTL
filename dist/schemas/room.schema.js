@@ -11,13 +11,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomSchema = exports.Room = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
-const user_schema_1 = require("./user.schema");
 let Room = class Room {
 };
 __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
 ], Room.prototype, "buildingName", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Room.prototype, "name", void 0);
 __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
@@ -48,19 +51,15 @@ __decorate([
 ], Room.prototype, "capacity", void 0);
 __decorate([
     (0, mongoose_1.Prop)((0, mongoose_1.raw)({
-        wifi: { type: Boolean },
-        waterHeater: { type: Boolean },
-        AC: { type: Boolean },
-        garden: { type: Boolean },
-        nearSchool: { type: Boolean },
-        nearHospital: { type: Boolean },
+        wifi: { type: Boolean, default: false },
+        waterHeater: { type: Boolean, default: false },
+        AC: { type: Boolean, default: false },
+        garden: { type: Boolean, default: false },
+        nearSchool: { type: Boolean, default: false },
+        nearHospital: { type: Boolean, default: false },
     })),
     __metadata("design:type", Object)
 ], Room.prototype, "advantages", void 0);
-__decorate([
-    (0, mongoose_1.Prop)({ type: user_schema_1.UserSchema }),
-    __metadata("design:type", user_schema_1.User)
-], Room.prototype, "owner", void 0);
 Room = __decorate([
     (0, mongoose_1.Schema)()
 ], Room);

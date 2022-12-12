@@ -32,8 +32,8 @@ export class EInvoiceService {
     await this.eInvoiceModel.updateOne(eInvoice);
   }
 
-  async deleteOne(eInvoice): Promise<void>{
-    console.log("At service:", eInvoice._id);
-    await this.eInvoiceModel.deleteOne({_id:eInvoice._id});
+  async deleteOne(id:string): Promise<void>{
+    //console.log("At service:", eInvoice._id);
+    await this.eInvoiceModel.deleteOne({_id:id});
   }
 }

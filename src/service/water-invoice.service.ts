@@ -32,7 +32,7 @@ export class WaterInvoiceService {
     await this.waterInvoiceModel.updateOne(waterInvoice);
   }
 
-  async deleteOne(waterInvoice): Promise<void>{
-    await this.waterInvoiceModel.deleteOne({_id:waterInvoice._id});
+  async deleteOne(id:string): Promise<void>{
+    await this.waterInvoiceModel.deleteOne({_id:id});
   }
 }

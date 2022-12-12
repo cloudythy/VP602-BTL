@@ -54,10 +54,10 @@ import {
       return response.status(HttpStatus.OK).json(waterInvoice);
     }
   
-    @Post("/delete")
-    async deleteOne(@Body() waterInvoice: WaterInvoice, @Res() response): Promise<any>{
-      console.log(waterInvoice);
-      await this.waterInvocieService.deleteOne(waterInvoice);
+    @Get("/delete/:id")
+    async deleteOne(@Req() request, @Res() response): Promise<any>{
+      //console.log(waterInvoice);
+      await this.waterInvocieService.deleteOne(request.params.id);
       return response.status(HttpStatus.OK).json(
         {
             "message":"OK"
