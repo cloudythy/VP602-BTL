@@ -1,9 +1,10 @@
 import {Text, View, StyleSheet, Image, ScrollView} from 'react-native';
 import CustomButton from '../../Button/CustomButton';
-import MapView from 'react-native-maps';
 import { Ionicons } from '@expo/vector-icons';
-export default function RoomDetail(props){
-    const { name, type, price, address, numOfBedRooms, numOfPeople, deposit, description, rules } =
+import { COLOR } from "../../../constants";
+
+export default function RoomTypeDetail(props){
+    const { name, price, address, numOfBedRoom, numOfPeople, numOfRoom, numOfRentedRoom, numOfAvailableRoom, numOfResgitration, deposit, roomList, description, rules } =
         props;
     return (
         <View >
@@ -13,7 +14,7 @@ export default function RoomDetail(props){
                 </View>
                 <View >
                     <View style={styles.line1}>
-                        <Text style={styles.normal.title}>{name}{' - '}{type}</Text>
+                    <Text style={styles.normal.title}>{name}{' - '}{type}</Text>
                         <Text>
                             <Text style={styles.normal.price}>{price}</Text>{' '}
                             VND/month
@@ -30,15 +31,46 @@ export default function RoomDetail(props){
                     <View style={styles.line1}>
                         <Ionicons name = "people" size = {20} color = "#CDA027" />
                         <Text style={styles.normal.text}>
-                            
                             {numOfPeople}{' '}
                             {numOfPeople > 1 ? 'persons' : 'person'}
                         </Text>
                         <Ionicons name = "bed" size = {20} color = "#CDA027" />
                         <Text style={styles.normal.text}>
-                            {numOfBedRooms}{' '}
-                            {numOfBedRooms > 1 ? 'bedrooms' : 'bedroom'}
+                            {numOfBedRoom}{' '}
+                            {numOfBedRoom > 1 ? 'bedrooms' : 'bedroom'}
                         </Text>
+                    </View>
+                    <View style={styles.line1}>
+                        <Text style={styles.normal.text}>
+                            {numOfRoom}{' '}
+                            {numOfRoom > 1 ? 'rooms' : 'room'}
+                        </Text>
+                        <Text style={styles.normal.text}>
+                            {numOfRentedRoom}{' '}
+                            {'rented out'}
+                        </Text>
+                        <Text style={styles.normal.text}>
+                            {numOfAvailableRoom}{' '}
+                            {'available'}
+                        </Text>
+                    </View>
+                    <View style= {styles.line2}>
+                        <Text style = {styles.normal.text}>
+                            {numOfResgitration}{' '}
+                            {numOfResgitration > 1 ? 'registrations' : 'registration'}
+                        </Text>
+                    </View>
+                    <Text style={styles.normal.header}>Room List</Text>
+                    <View style = {styles.container}>
+                        {roomList.map((room) => {
+                            return (
+                                <CustomButton
+                                    type = {room.registed == true ? 'admin' : 'neutral'}
+                                    shape = "round"
+                                    title = {room.name}
+                                />
+                            )
+                        })}
                     </View>
                     <Text style={styles.normal.header}>Description</Text>
                     <Text style={styles.normal.text}>{description}</Text>
@@ -51,23 +83,11 @@ export default function RoomDetail(props){
                         <Image source={require('../../../images/Room/RoomDetail.png')} style={styles.normal.image}/>
                         
                     </ScrollView>
-
-                </View>
-                <MapView style={styles.map}/>
-                <Text style={styles.normal.header}>Rules</Text>
-                <Text style={styles.normal.text}>{rules}</Text>
-                <CustomButton 
-                    size='big' 
-                    type='important' 
-                    onPress={() => console.log("register") }
-                    title = 'Register'
-                />
-                
+                    <Text style={styles.normal.header}>Rules</Text>
+                    <Text style={styles.normal.text}>{rules}</Text>
+                </View>               
             </ScrollView>
-            
         </View>
-
-
     );
     
 }
@@ -89,6 +109,13 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         marginTop: '2%'
+    },
+    line2: {
+        display: 'flex',
+        flexDirection: 'row',
+        marginTop: '2%',
+        backgroundColor: COLOR.admin.primary,
+        color: '#ffffff'
     },
     normal: {
         imageContainer: {

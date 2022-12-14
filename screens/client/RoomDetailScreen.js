@@ -6,12 +6,15 @@ export default function RoomDetailScreen(){
         <View>
             <RoomDetail
             name = "New tower" 
+            type = "B-class"
             price= "3000000" 
             address ="Hocmon" 
-            numOfRooms = "3" 
+            numOfBedRooms = "3" 
             numOfPeople = "4" 
             deposit = "1000000" 
-            description = "abcde"/>
+            description = "abcde"
+            rules = "nothing"
+            />
         </View>
     );
 }

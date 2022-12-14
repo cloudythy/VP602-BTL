@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import Search from '.../components/Input/Search';
 import RoomInfoManageMent from '.../components/ComplexComponent/Room/RoomInfoManageMent';
 import CustomButton from '../../components/Button/CustomButton';
-export default function ListOfRoomScreen({navigation}) {
+export default function RentingManagementScreen({navigation}) {
     const pressHandler = () => {
         navigation.navigate("Room detail");
         console.log("abc");
@@ -96,7 +96,7 @@ export default function ListOfRoomScreen({navigation}) {
             <CustomButton
                 size='big' 
                 type='admin' 
-                onPress={()=> console.log("Add room")}
+                onPress={()=> console.log("Add room")} //call api here
                 title = 'Add room'
             />
         </View>
