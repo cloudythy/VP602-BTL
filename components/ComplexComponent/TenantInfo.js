@@ -2,12 +2,13 @@ import React from "react";
 import { Pressable, Text, StyleSheet, View } from "react-native";
 import { COLOR } from "../../constants";
 import Background from "../Background";
+import { ROLES } from "../../constants";
 
 const TenantInfo = (props) => {
-  const { name, phone } = props;
+  const { name, phone, role } = props;
   return (
     <Background style={styles.container}>
-      <Text style={{ color: COLOR.user.primaryShade[200] }}>{name}</Text>
+      <Text style={{ color: {role} == ROLES.admin? COLOR.user.primaryShade[200] : COLOR.admin.primaryShade[200]}}>{name}</Text>
       <Text>{phone}</Text>
     </Background>
   );

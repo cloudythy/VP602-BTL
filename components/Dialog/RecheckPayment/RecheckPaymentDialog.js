@@ -7,11 +7,12 @@ import PaymentOption from '../../Button/PaymentOptions';
 import RoomInfo from '../../ComplexComponent/Room/RoomInfo';
 import TenantInfo from '../ComplexComponent/TenantInfo';
 import Dialog from '../Dialog';
+import { ROLES } from '../../../constants';
 
 const RecheckPaymentDialog = props => {
     const { onOk, onCancel, roomInfo, tenantInfo, totalBill } = props;
     const { roomName, price, address, deposit, numOfPeople } = roomInfo;
-    const { tenantName, phone } = tenantInfo;
+    const { tenantName, phone, role} = tenantInfo;
     return (
         <Dialog
             type="2 opt"
@@ -36,6 +37,7 @@ const RecheckPaymentDialog = props => {
             <TenantInfo
                 name={tenantName}
                 phone={phone}
+                role={role}
             />
             <Text style={{ marginTop: 10 }}>Payment method</Text>
             <View style={styles.payment}>

@@ -1,10 +1,6 @@
 import React from 'react';
-import { Pressable, Text, StyleSheet, Image, View } from 'react-native';
-import { COLOR } from '../../../constants';
-import Background from '../../Background';
-import RoomInfo from '../../ComplexComponent/Room/RoomInfo';
+import {StyleSheet} from 'react-native';
 import RecheckPaymentDialog from './RecheckPaymentDialog';
-import TenantInfo from '../../ComplexComponent/TenantInfo';
 import ServiceBill from '../../ComplexComponent/ServiceBill';
 
 const ServicePayment = props => {

@@ -8,7 +8,7 @@ import TenantInfo from "../../ComplexComponent/TenantInfo";
 const RegistrationPayment = (props) => {
   const { tenantInfo, roomInfo, onOk, onCancel, totalBill } = props;
   const { roomName, price, address, deposit, numOfPeople } = roomInfo;
-  const { tenantName, phone } = tenantInfo;
+  const { tenantName, phone, role } = tenantInfo;
   return (
     <RecheckPaymentDialog onOk={onOk} onCancel={onCancel} totalBill={totalBill}>
       <View style={styles.roomInfo}>
@@ -20,7 +20,7 @@ const RegistrationPayment = (props) => {
         />
       </View>
       <Text style={{ marginTop: 5 }}>Tenants (maximum {numOfPeople})</Text>
-      <TenantInfo name={tenantName} phone={phone} />
+      <TenantInfo name={tenantName} phone={phone} role={role}/>
     </RecheckPaymentDialog>
   );
 };

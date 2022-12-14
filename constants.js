@@ -34,6 +34,11 @@ export const COLOR = {
     },
 };
 
+export const ROLES = {
+    admin: 'Admin',
+    user: 'User'
+}
+
 export const SERVICES = {
     wifi: {
         name: 'Wifi',
