@@ -33,3 +33,18 @@ export const COLOR = {
         ok: '18B031',
     },
 };
+
+export const SERVICES = {
+    wifi: {
+        name: 'Wifi',
+        icon: "wifi"
+    },
+    parking: {
+        name: 'Parking',
+        icon: 'car-sport'
+    },
+    cleaningService: {
+        name: 'Cleaning Service',
+        icon: 'bed'
+    }
+}
