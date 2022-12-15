@@ -6,7 +6,7 @@ import {React, useState} from 'react'
 
 export default function Login({navigation}) {
     const defaultUserInfo = {
-        username: {
+        phonenumber: {
             value: "",
             isValid: true,
         },
@@ -17,12 +17,13 @@ export default function Login({navigation}) {
     }
     const [userInfo, setUserInfo] = useState(defaultUserInfo);
     async function submitHandler() {
-        // const data = {
-        //     username: userInfo.username.value,
-        //     password: userInfo.password.value
-        // }
-        // setUserInfo(defaultUserInfo);
-        // const response = await auth(data);
+        const data = {
+            username: userInfo.username.value,
+            password: userInfo.password.value
+        }
+        setUserInfo(defaultUserInfo);
+        const response = await auth(data);
+        console.log(response);
         navigation.navigate("Main Screen");
     }
     function inputChangedHandler(inputIdentifier, enteredValue) {
@@ -42,8 +43,8 @@ export default function Login({navigation}) {
                 </View> */}
 
                 <InputText 
-                    name = "username"
-                    onChangeText={inputChangedHandler.bind(this, 'username')}
+                    name = "phonenumber"
+                    onChangeText={inputChangedHandler.bind(this, 'phonenumber')}
                 />
                 <InputText 
                     name = "password" 
