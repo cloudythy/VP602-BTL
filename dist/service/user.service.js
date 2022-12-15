@@ -25,10 +25,10 @@ let UserService = class UserService {
         return await this.userModel.create(user);
     }
     async updateOne(user) {
-        return await this.userModel.findOneAndUpdate({ phonenumber: user.phonenumber }, user);
+        return await this.userModel.findOneAndUpdate({ phoneNumber: user.phoneNumber }, user);
     }
-    async findOne(phonenumber) {
-        return await this.userModel.findOne({ phonenumber: phonenumber });
+    async findOne(phoneNumber) {
+        return await this.userModel.findOne({ phoneNumber: phoneNumber });
     }
 };
 UserService = __decorate([

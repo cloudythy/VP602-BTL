@@ -37,7 +37,7 @@ let RoomController = class RoomController {
     }
     async updateRoom(room, response, req) {
         if (room.status == true && (await this.roomService.getStatus(room.name) == false)) {
-            const user = await this.userService.findOne(req.user.phonenumber);
+            const user = await this.userService.findOne(req.user.phoneNumber);
             user.room = room;
             await this.userService.updateOne(user);
         }

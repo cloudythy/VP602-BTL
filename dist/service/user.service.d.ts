@@ -37,5 +37,5 @@ export declare class UserService {
     } & Required<{
         _id: import("mongoose").Types.ObjectId;
     }>>;
-    findOne(phonenumber: any): Promise<User>;
+    findOne(phoneNumber: any): Promise<User>;
 }
