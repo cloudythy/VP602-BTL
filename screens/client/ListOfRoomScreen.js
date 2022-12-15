@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import Search from '../components/Input/Search';
-import RoomInfo from '../components/ComplexComponent/Room/RoomInfo';
+import Search from '../../components/Input/Search';
+import RoomInfo from '../../components/ComplexComponent/Room/RoomInfo';
 export default function ListOfRoomScreen({navigation}) {
     const pressHandler = () => {
         navigation.navigate("Room detail");

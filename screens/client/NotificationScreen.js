@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, Scrollable } from 'react-native';
-import Search from '../components/Input/Search';
-import LatePaymentNotification from '../components/ComplexComponent/LatePaymentNotification';
+import Search from '../../components/Input/Search';
+import LatePaymentNotification from '../../components/ComplexComponent/LatePaymentNotification';
 
 export default function NotificationScreen() {
     return (

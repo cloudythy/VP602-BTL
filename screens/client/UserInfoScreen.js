@@ -1,9 +1,9 @@
 import {View, Image, StyleSheet, Text} from 'react-native';
-import CustomButton from '../components/Button/CustomButton';
+import CustomButton from '../../components/Button/CustomButton';
 export default function UserInfoScreen() {
     return (
         <View style={styles.container}>
-            <Image source={require('../images/ava.jpg')} style={styles.image} scale = 'scale'/>
+            <Image source={require('../../images/ava.jpg')} style={styles.image} scale = 'scale'/>
             <Text style={styles.text}>
                 Ngô Diễm Quỳnh
             </Text>

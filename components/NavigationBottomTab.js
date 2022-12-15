@@ -1,9 +1,9 @@
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeScreen from '../screens/HomeScreen';
-import NotificationScreen from '../screens/NotificationScreen';
-import UserInfoScreen from '../screens/UserInfoScreen';
-import WelcomeScreen from '../screens/WelcomeScreen';
+import HomeScreen from '../screens/client/HomeScreen';
+import NotificationScreen from '../screens/client/NotificationScreen';
+import UserInfoScreen from '../screens/client/UserInfoScreen';
+import WelcomeScreen from '../screens/client/WelcomeScreen';
 import {StyleSheet} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 

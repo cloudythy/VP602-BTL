@@ -10,7 +10,7 @@ import Dialog from '../Dialog';
 import { ROLES } from '../../../constants';
 
 const RecheckPaymentDialog = props => {
-    const { onOk, onCancel, roomInfo, tenantInfo, totalBill } = props;
+    const { onOk, onCancel, roomInfo, tenantInfoList, totalBill } = props;
     const { roomName, price, address, deposit, numOfPeople } = roomInfo;
     const { tenantName, phone, role} = tenantInfo;
     return (

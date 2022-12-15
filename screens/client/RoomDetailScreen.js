@@ -1,5 +1,5 @@
 import {Text, View, StyleSheet} from 'react-native';
-import RoomDetail from '../components/ComplexComponent/Room/RoomDetail';
+import RoomDetail from '../../components/ComplexComponent/Room/RoomDetail';
 
 export default function RoomDetailScreen(){
     return (

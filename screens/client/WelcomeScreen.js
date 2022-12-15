@@ -1,13 +1,13 @@
 import { View, Text, StyleSheet, Image } from 'react-native';
-import HomeScreenButton from '../components/Button/HomeScreenButton';
-import Search from '../components/Input/Search';
-import Background from '../components/Background';
+import HomeScreenButton from '../../components/Button/HomeScreenButton';
+import Search from '../../components/Input/Search';
+import Background from '../../components/Background';
 export default function WelcomeScreen() {
     let image = [
-        <Image source={require('../images/Home/MyRoomBtn.png')} style={styles.image} scale = 'scale'/>,
-        <Image source={require('../images/Home/EWBtn.png')} style={styles.image} scale = 'scale'/>,
-        <Image source={require('../images/Home/MyServiceBtn.png')} style={styles.image} scale = 'scale'/>,
-        <Image source={require('../images/Home/MyBillBtn.png')} style={styles.image} scale = 'scale'/>
+        <Image source={require('../../images/Home/MyRoomBtn.png')} style={styles.image} scale = 'scale'/>,
+        <Image source={require('../../images/Home/EWBtn.png')} style={styles.image} scale = 'scale'/>,
+        <Image source={require('../../images/Home/MyServiceBtn.png')} style={styles.image} scale = 'scale'/>,
+        <Image source={require('../../images/Home/MyBillBtn.png')} style={styles.image} scale = 'scale'/>
     ]
     return (
         <View>
