@@ -1,23 +1,27 @@
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import Search from '../components/Input/Search';
 import RoomInfo from '../components/ComplexComponent/Room/RoomInfo';
-export default function ListOfRoomScreen({navigation}) {
+export default function ListOfRoom({navigation}) {
+    function pressHandler() {
+        console.log("abc");
+        navigation.navigate("Room Detail");
+    }
     return (
         <View style={styles.container}>
             <Search/>
             <ScrollView>
                 <RoomInfo
                     type = "normal"
-                    // name = "NewTower"
+                    name = "New Tower"
                     price = "3.000.000"
                     address = "Hocmon"
                     numOfRooms = "3"
                     numOfPeople = "4"
                     deposit = "100"
-                    onPress={()=>navigation.navigate("Room detail")}
+                    onPress={pressHandler}
 
                 />
-                {/* <RoomInfo
+                <RoomInfo
                     type = "normal"
                     name = "NewTower"
                     price = "3.000.000"
@@ -26,6 +30,7 @@ export default function ListOfRoomScreen({navigation}) {
                     numOfPeople = "4"
                     deposit = "100"
                     onPress={()=>{navigation.navigate("Room detail")}}
+
                 />
                 <RoomInfo
                     type = "normal"
@@ -48,7 +53,10 @@ export default function ListOfRoomScreen({navigation}) {
                     deposit = "100"
                     onPress={()=>{navigation.navigate("Room detail")}}
 
-                /> */}
+                />
+                
+                    
+
             </ScrollView>
         </View>
     );
