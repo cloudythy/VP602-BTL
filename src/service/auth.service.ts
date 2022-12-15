@@ -20,7 +20,7 @@ export class AuthService {
   }
 
   async login(user: any) {
-    const result = await this.validateUser(user.phonenumber, user.password);
+    const result = await this.validateUser(user.phoneNumber, user.password);
     if (result == null) {
       throw new UnauthorizedException();
     } else {
@@ -33,7 +33,7 @@ export class AuthService {
   }
 
   async signUp(user: any) {
-    const userFromDB = await this.usersService.findOne(user.phonenumber);
+    const userFromDB = await this.usersService.findOne(user.phoneNumber);
     if(userFromDB != null){
       return false;
     } else{

@@ -42,7 +42,7 @@ export class RoomController {
   @UseGuards(AuthGuard("jwt"))
   async updateRoom(@Body() room: Room, @Res() response, @Req() req): Promise<Room> {
     if(room.status == true && (await this.roomService.getStatus(room.name)==false)){
-      const user = await this.userService.findOne(req.user.phonenumber)
+      const user = await this.userService.findOne(req.user.phoneNumber)
       user.room = room;
       await this.userService.updateOne(user)
     }

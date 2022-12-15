@@ -12,10 +12,10 @@ export class UserService {
   }
 
   async updateOne(user){
-    return await this.userModel.findOneAndUpdate({phonenumber: user.phonenumber}, user)
+    return await this.userModel.findOneAndUpdate({phoneNumber: user.phoneNumber}, user)
   }
   
-  async findOne(phonenumber): Promise<User> {
-    return await this.userModel.findOne({ phonenumber: phonenumber });
+  async findOne(phoneNumber): Promise<User> {
+    return await this.userModel.findOne({ phoneNumber: phoneNumber });
   }
 }
