@@ -24,8 +24,8 @@ const HomeScreenButton = (props) => {
 
 const styles = StyleSheet.create({
     container: {
-        width: 179,
-        height: 193,
+        width: 169,
+        height: 190,
         backgroundColor: 'white',
         borderRadius: 20
     },

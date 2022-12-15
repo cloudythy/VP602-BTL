@@ -27,10 +27,30 @@ export async function auth(userInfo) {
     return response;
 }
 
-export async function register(userInfo) {
+export async function signup(userInfo) {
     let response;
     const dataToServer = {
+        "fullname": userInfo.fullname,
+        "phonenumber": userInfo.phonenumber,
         "username": userInfo.username,
         "password": userInfo.password,
     }
+    await axios({
+        method: 'POST',
+        url: backend_url + '/signup',
+        data: dataToServer
+    }).then (
+        (res) => {
+          response = res.data;
+          console.log("Response" + JSON.stringify(res));
+        }
+      )
+      .catch(
+        error => {
+          res = error.response.status;
+          console.log("Error: " + error.response.status);
+          
+        }
+    ) 
+    return response;
 }

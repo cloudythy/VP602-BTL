@@ -12,7 +12,7 @@ export default function WelcomeScreen() {
     return (
         <View>
             {/* <View style={styles.container}>
-                <Image source={require('../images/Logo.png')} style={styles.image} scale = 'scale'/>
+                <Image source={require('../images/Logo.png')} style={styles.image}/>
             </View> */}
             <Text style={styles.text}>Xin chào, Ngô Diễm Quỳnh </Text>
             
@@ -37,14 +37,14 @@ const styles = StyleSheet.create({
         paddingLeft: '25%'
     },
     image: {
-        width: '70%',
-        height: '70%',
+        width: '80%',
+        height: '60%',
     },
     rowButton: {
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-around',
-        paddingVertical: '30%',
+        paddingVertical: '28%',
     },
     text: {
         marginTop: '40%',

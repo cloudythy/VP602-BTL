@@ -17,12 +17,12 @@ export default function Login({navigation}) {
     }
     const [userInfo, setUserInfo] = useState(defaultUserInfo);
     async function submitHandler() {
-        const data = {
-            username: userInfo.username.value,
-            password: userInfo.password.value
-        }
-        setUserInfo(defaultUserInfo);
-        const response = await auth(data);
+        // const data = {
+        //     username: userInfo.username.value,
+        //     password: userInfo.password.value
+        // }
+        // setUserInfo(defaultUserInfo);
+        // const response = await auth(data);
         navigation.navigate("Main Screen");
     }
     function inputChangedHandler(inputIdentifier, enteredValue) {

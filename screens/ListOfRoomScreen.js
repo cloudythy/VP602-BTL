@@ -8,7 +8,7 @@ export default function ListOfRoomScreen({navigation}) {
             <ScrollView>
                 <RoomInfo
                     type = "normal"
-                    name = "NewTower"
+                    // name = "NewTower"
                     price = "3.000.000"
                     address = "Hocmon"
                     numOfRooms = "3"
@@ -17,7 +17,7 @@ export default function ListOfRoomScreen({navigation}) {
                     onPress={()=>navigation.navigate("Room detail")}
 
                 />
-                <RoomInfo
+                {/* <RoomInfo
                     type = "normal"
                     name = "NewTower"
                     price = "3.000.000"
@@ -48,7 +48,7 @@ export default function ListOfRoomScreen({navigation}) {
                     deposit = "100"
                     onPress={()=>{navigation.navigate("Room detail")}}
 
-                />
+                /> */}
             </ScrollView>
         </View>
     );

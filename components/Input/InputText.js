@@ -16,7 +16,7 @@ function InputText(props) {
                     secureTextEntry={props.isSecure} 
                     placeholder={props.name} 
                     style={styles.input} 
-                    // onChangeText={inputHandler}  
+                    onChangeText={inputHandler}  
                     editable={props.editable}
                 />
             </View>

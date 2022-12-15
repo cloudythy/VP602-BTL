@@ -9,7 +9,7 @@ export default function HomeScreen() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="List of room" options={{ headerShown: false }} component={ListOfRoomScreen}/>
-      <Stack.Screen name="Room detail" component={RoomDetailScreen}/>
+      {/* <Stack.Screen name="Room detail" component={RoomDetailScreen}/> */}
     </Stack.Navigator>
     
     
