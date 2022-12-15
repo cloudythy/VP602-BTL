@@ -28,14 +28,17 @@ let RoomService = class RoomService {
     async getAll() {
         return await this.roomModel.find();
     }
-    async getOne(id) {
-        return await this.roomModel.findById(id);
+    async getOne(name) {
+        return await this.roomModel.findOne({ name: name });
+    }
+    async getStatus(name) {
+        return (await this.roomModel.findOne({ name: name })).status;
     }
     async updateRoom(room) {
-        await this.roomModel.findByIdAndUpdate(room._id, room);
+        await this.roomModel.findOneAndUpdate({ name: room.name }, room);
     }
     async deleteRoom(room) {
-        await this.roomModel.deleteOne({ _id: room._id });
+        await this.roomModel.deleteOne({ name: room.name });
     }
 };
 RoomService = __decorate([

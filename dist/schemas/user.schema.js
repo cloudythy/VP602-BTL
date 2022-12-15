@@ -27,6 +27,7 @@ __decorate([
     __metadata("design:type", String)
 ], User.prototype, "password", void 0);
 __decorate([
+    (0, mongoose_1.Prop)({}),
     (0, mongoose_1.Prop)({ type: room_schema_1.RoomSchema }),
     __metadata("design:type", room_schema_1.Room)
 ], User.prototype, "room", void 0);

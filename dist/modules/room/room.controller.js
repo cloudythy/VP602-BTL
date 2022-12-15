@@ -17,9 +17,11 @@ const common_1 = require("@nestjs/common");
 const passport_1 = require("@nestjs/passport");
 const room_schema_1 = require("../../schemas/room.schema");
 const room_service_1 = require("../../service/room.service");
+const user_service_1 = require("../../service/user.service");
 let RoomController = class RoomController {
-    constructor(roomService) {
+    constructor(roomService, userService) {
         this.roomService = roomService;
+        this.userService = userService;
     }
     async createRoom(room, response) {
         await this.roomService.createRoom(room);
@@ -31,14 +33,19 @@ let RoomController = class RoomController {
     async getOne(request, response) {
         return response
             .status(common_1.HttpStatus.OK)
-            .json(await this.roomService.getOne(request.params.id));
+            .json(await this.roomService.getOne(request.params.name));
     }
-    async updateRoom(room, response) {
+    async updateRoom(room, response, req) {
+        if (room.status == true && (await this.roomService.getStatus(room.name) == false)) {
+            const user = await this.userService.findOne(req.user.phonenumber);
+            user.room = room;
+            await this.userService.updateOne(user);
+        }
         await this.roomService.updateRoom(room);
         return response.status(common_1.HttpStatus.OK).json(room);
     }
     async deleteRoom(request, response) {
-        await this.roomService.deleteRoom(request.params.id);
+        await this.roomService.deleteRoom(request.params.name);
         return response.status(common_1.HttpStatus.OK).json({
             message: "OK",
         });
@@ -62,7 +69,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], RoomController.prototype, "getAll", null);
 __decorate([
-    (0, common_1.Get)("get/:id"),
+    (0, common_1.Get)("get/:name"),
     (0, common_1.UseGuards)((0, passport_1.AuthGuard)("jwt")),
     __param(0, (0, common_1.Req)()),
     __param(1, (0, common_1.Res)()),
@@ -75,12 +82,13 @@ __decorate([
     (0, common_1.UseGuards)((0, passport_1.AuthGuard)("jwt")),
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_1.Res)()),
+    __param(2, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [room_schema_1.Room, Object]),
+    __metadata("design:paramtypes", [room_schema_1.Room, Object, Object]),
     __metadata("design:returntype", Promise)
 ], RoomController.prototype, "updateRoom", null);
 __decorate([
-    (0, common_1.Get)("/delete/:id"),
+    (0, common_1.Get)("/delete/:name"),
     (0, common_1.UseGuards)((0, passport_1.AuthGuard)("jwt")),
     __param(0, (0, common_1.Req)()),
     __param(1, (0, common_1.Res)()),
@@ -90,7 +98,7 @@ __decorate([
 ], RoomController.prototype, "deleteRoom", null);
 RoomController = __decorate([
     (0, common_1.Controller)("/api/v1/room"),
-    __metadata("design:paramtypes", [room_service_1.RoomService])
+    __metadata("design:paramtypes", [room_service_1.RoomService, user_service_1.UserService])
 ], RoomController);
 exports.RoomController = RoomController;
 //# sourceMappingURL=room.controller.js.map

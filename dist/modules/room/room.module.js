@@ -10,7 +10,9 @@ exports.RoomModule = void 0;
 const common_1 = require("@nestjs/common");
 const mongoose_1 = require("@nestjs/mongoose");
 const room_schema_1 = require("../../schemas/room.schema");
+const user_schema_1 = require("../../schemas/user.schema");
 const room_service_1 = require("../../service/room.service");
+const user_service_1 = require("../../service/user.service");
 const room_controller_1 = require("./room.controller");
 let RoomModule = class RoomModule {
 };
@@ -22,9 +24,13 @@ RoomModule = __decorate([
                     name: room_schema_1.Room.name,
                     schema: room_schema_1.RoomSchema,
                 },
+                {
+                    name: user_schema_1.User.name,
+                    schema: user_schema_1.UserSchema,
+                }
             ]),
         ],
-        providers: [room_service_1.RoomService],
+        providers: [room_service_1.RoomService, user_service_1.UserService],
         controllers: [room_controller_1.RoomController],
     })
 ], RoomModule);

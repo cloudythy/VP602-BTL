@@ -5,7 +5,8 @@ export declare class RoomService {
     constructor(roomModel: Model<RoomDocument>);
     createRoom(room: Room): Promise<void>;
     getAll(): Promise<Room[]>;
-    getOne(id: any): Promise<Room>;
+    getOne(name: any): Promise<Room>;
+    getStatus(name: any): Promise<boolean>;
     updateRoom(room: any): Promise<void>;
     deleteRoom(room: any): Promise<void>;
 }
