@@ -54,3 +54,10 @@ export async function signup(userInfo) {
     ) 
     return response;
 }
+
+export async function getRoom() {
+    const roomList = [];
+    const response =  await axios.get(backend_url + '/get/all');
+    console.log(response);
+    return response;
+}

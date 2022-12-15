@@ -20,25 +20,31 @@ export default function RoomDetail(props){
                         </Text>
                     </View>
                     <View style={styles.line1}>
-                        <Ionicons name = "location" size = {20} color = "#CDA027" />
-                        <Text style={styles.normal.address}>{address}</Text>
+                        <View style={styles.line2}>
+                            <Ionicons name = "location" size = {20} color = "#CDA027" />
+                            <Text style={styles.normal.address}>{address}</Text>
+                        </View>
                         <Text>
                             <Text style={styles.normal.price}>{deposit}</Text>{' '}
                             deposit
                         </Text>
                     </View>
                     <View style={styles.line1}>
-                        <Ionicons name = "people" size = {20} color = "#CDA027" />
-                        <Text style={styles.normal.text}>
-                            
-                            {numOfPeople}{' '}
-                            {numOfPeople > 1 ? 'persons' : 'person'}
-                        </Text>
-                        <Ionicons name = "bed" size = {20} color = "#CDA027" />
-                        <Text style={styles.normal.text}>
-                            {numOfRooms}{' '}
-                            {numOfRooms > 1 ? 'bedrooms' : 'bedroom'}
-                        </Text>
+                        <View style={styles.line2}>
+                            <Ionicons name = "people" size = {20} color = "#CDA027" />
+                            <Text style={styles.normal.text}>
+                                
+                                {numOfPeople}{' '}
+                                {numOfPeople > 1 ? 'persons' : 'person'}
+                            </Text>
+                        </View>
+                        <View style={styles.line2}>
+                            <Ionicons name = "bed" size = {20} color = "#CDA027" />
+                            <Text style={styles.normal.text}>
+                                {numOfRooms}{' '}
+                                {numOfRooms > 1 ? 'bedrooms' : 'bedroom'}
+                            </Text>
+                        </View>
                     </View>
                     <Text style={styles.normal.header}>Description</Text>
                     <Text style={styles.normal.text}>{description}</Text>
@@ -58,7 +64,7 @@ export default function RoomDetail(props){
                 <CustomButton 
                     size='big' 
                     type='important' 
-                    onPress={() => console.log("register") }
+                    onPress={props.onRegister}
                     title = 'Register'
                 />
                 
@@ -85,6 +91,12 @@ const styles = StyleSheet.create({
         marginTop: '5%'
     },
     line1: {
+        display: 'flex',
+        flexDirection: 'row',
+        marginTop: '2%',
+        justifyContent: "space-between"
+    },
+    line2: {
         display: 'flex',
         flexDirection: 'row',
         marginTop: '2%'
