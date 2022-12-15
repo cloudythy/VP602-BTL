@@ -22,14 +22,15 @@
 /// <reference types="mongoose/types/validation" />
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose/types/inferschematype" />
-import { HydratedDocument } from "mongoose";
-import { Room } from "./room.schema";
-export type UserDocument = HydratedDocument<User>;
-export declare class User {
-    fullname: string;
-    phoneNumber: string;
-    password: string;
-    room: Room;
-    createdDate: Date;
+import { Model } from "mongoose";
+import { User, UserDocument } from "src/schemas/user.schema";
+export declare class UserService {
+    private userModel;
+    constructor(userModel: Model<UserDocument>);
+    createOne(user: any): Promise<import("mongoose").Document<unknown, any, User> & User & {
+        _id: import("mongoose").Types.ObjectId;
+    } & Required<{
+        _id: import("mongoose").Types.ObjectId;
+    }>>;
+    findOne(phonenumber: any): Promise<User>;
 }
-export declare const UserSchema: import("mongoose").Schema<User, import("mongoose").Model<User, any, any, any, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, User>;

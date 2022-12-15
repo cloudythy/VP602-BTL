@@ -9,7 +9,9 @@ import {
     Put,
     Req,
     Res,
+    UseGuards,
   } from "@nestjs/common";
+import { AuthGuard } from "@nestjs/passport";
   import { WaterInvoice } from "src/schemas/water-invoice.schema";
   import { WaterInvoiceService } from "src/service/water-invoice.service";
   
@@ -18,6 +20,7 @@ import {
     constructor(private readonly waterInvocieService: WaterInvoiceService) {}
   
     @Post("/create")
+    @UseGuards(AuthGuard("jwt"))
     async creatWaterInvoice(@Body() waterInvoice: WaterInvoice, @Res() response) {
       console.log(WaterInvoice);
       try {
@@ -33,12 +36,14 @@ import {
     }
   
     @Get("/all")
+    @UseGuards(AuthGuard("jwt"))
     async getAll(@Res() response): Promise<WaterInvoice[]> {
       const WaterInvoiceList = await this.waterInvocieService.getAll();
       return response.status(HttpStatus.OK).json(WaterInvoiceList);
     }
   
     @Get("/get/:id")
+    @UseGuards(AuthGuard("jwt"))
     async getOne(@Res() response, @Req() request): Promise<WaterInvoice> {
       const id = request.params.id;
       const waterInvoice = await this.waterInvocieService.getOne(id);
@@ -46,6 +51,7 @@ import {
     }
   
     @Patch("/update")
+    @UseGuards(AuthGuard("jwt"))
     async updateOne(
       @Body() waterInvoice: WaterInvoice,
       @Res() response
@@ -55,6 +61,7 @@ import {
     }
   
     @Get("/delete/:id")
+    @UseGuards(AuthGuard("jwt"))
     async deleteOne(@Req() request, @Res() response): Promise<any>{
       //console.log(waterInvoice);
       await this.waterInvocieService.deleteOne(request.params.id);

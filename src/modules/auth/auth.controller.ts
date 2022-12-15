@@ -1,27 +1,45 @@
-import { Body, Controller, Delete, Get, HttpStatus, Param, Post, UploadedFiles, Put, Req, Res } from "@nestjs/common";
-import { JwtService } from '@nestjs/jwt';
+import { Body, Controller, Get, HttpStatus, Post, Res } from "@nestjs/common";
+import { JwtService } from "@nestjs/jwt";
 import { User } from "src/schemas/user.schema";
 import { AuthService } from "src/service/auth.service";
 
+@Controller("/api/v1")
+export class AuthController {
+  constructor(
+    private readonly authService: AuthService,
+    private jwtService: JwtService
+  ) {}
 
-@Controller('/api/v1/user')
-export class UserController {
-    constructor(private readonly userServerice: AuthService,
-        private jwtService: JwtService
-    ) { }
+  @Get("/signup")
+  async getSignUp(@Res() res): Promise<any> {
+    return res.status(HttpStatus.OK).json({});
+  }
 
-    @Post('/signup')
-    async Signup(@Res() response, @Body() user: User) {
-        console.log(user)
-        const newUSer = await this.userServerice.signup(user);
-        return response.status(HttpStatus.CREATED).json({
-            newUSer
-        })
+  @Get("/login")
+  async getLogin(@Res() res): Promise<any> {
+    return res.status(HttpStatus.OK).json({
+      message: "OK",
+    });
+  }
+
+  @Post("/signup")
+  async signUp(@Res() response, @Body() user: User) {
+    console.log(user);
+    const createSuccess = await this.authService.signUp(user);
+    if (createSuccess) {
+      return response.status(HttpStatus.CREATED).json({
+        user,
+      });
+    } else {
+      return response.status(HttpStatus.BAD_REQUEST).json({
+        message: "User already exists",
+      });
     }
+  }
 
-    @Post('/signin')
-    async SignIn(@Res() response, @Body() user: User) {
-        const token = await this.userServerice.signin(user, this.jwtService);
-        return response.status(HttpStatus.OK).json(token)
-    }
+  @Post("/login")
+  async login(@Body() user): Promise<any> {
+    console.log(user);
+    return this.authService.login(user);
+  }
 }

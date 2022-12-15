@@ -11,12 +11,13 @@ const common_1 = require("@nestjs/common");
 const mongoose_1 = require("@nestjs/mongoose");
 const serve_static_1 = require("@nestjs/serve-static");
 const jwt_1 = require("@nestjs/jwt");
-const app_service_1 = require("./app.service");
 const constants_1 = require("./utils/constants");
 const posix_1 = require("path/posix");
 const electric_invoice_module_1 = require("./modules/electric-invoice/electric-invoice.module");
 const water_invoice_module_1 = require("./modules/water-invoice/water-invoice.module");
 const room_module_1 = require("./modules/room/room.module");
+const auth_module_1 = require("./modules/auth/auth.module");
+const user_module_1 = require("./modules/user/user.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -32,10 +33,12 @@ AppModule = __decorate([
             }),
             electric_invoice_module_1.ElectricInvoiceModule,
             water_invoice_module_1.WaterInvoiceModule,
-            room_module_1.RoomModule
+            room_module_1.RoomModule,
+            user_module_1.UserModule,
+            auth_module_1.AuthModule,
         ],
         controllers: [],
-        providers: [app_service_1.AppService],
+        providers: [],
     })
 ], AppModule);
 exports.AppModule = AppModule;

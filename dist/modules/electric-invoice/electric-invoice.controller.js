@@ -14,6 +14,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ElectricInvoiceController = void 0;
 const common_1 = require("@nestjs/common");
+const passport_1 = require("@nestjs/passport");
 const electric_invoice_schema_1 = require("../../schemas/electric-invoice.schema");
 const electric_invoice_service_1 = require("../../service/electric-invoice.service");
 let ElectricInvoiceController = class ElectricInvoiceController {
@@ -93,6 +94,7 @@ __decorate([
 ], ElectricInvoiceController.prototype, "deleteOne", null);
 ElectricInvoiceController = __decorate([
     (0, common_1.Controller)("/api/v1/einvoice"),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)("jwt")),
     __metadata("design:paramtypes", [electric_invoice_service_1.EInvoiceService])
 ], ElectricInvoiceController);
 exports.ElectricInvoiceController = ElectricInvoiceController;

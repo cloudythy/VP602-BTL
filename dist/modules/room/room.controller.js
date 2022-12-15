@@ -14,6 +14,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomController = void 0;
 const common_1 = require("@nestjs/common");
+const passport_1 = require("@nestjs/passport");
 const room_schema_1 = require("../../schemas/room.schema");
 const room_service_1 = require("../../service/room.service");
 let RoomController = class RoomController {
@@ -45,6 +46,7 @@ let RoomController = class RoomController {
 };
 __decorate([
     (0, common_1.Post)("/create"),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)("jwt")),
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_1.Res)()),
     __metadata("design:type", Function),
@@ -53,6 +55,7 @@ __decorate([
 ], RoomController.prototype, "createRoom", null);
 __decorate([
     (0, common_1.Get)("/get/all"),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)("jwt")),
     __param(0, (0, common_1.Res)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
@@ -60,6 +63,7 @@ __decorate([
 ], RoomController.prototype, "getAll", null);
 __decorate([
     (0, common_1.Get)("get/:id"),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)("jwt")),
     __param(0, (0, common_1.Req)()),
     __param(1, (0, common_1.Res)()),
     __metadata("design:type", Function),
@@ -68,6 +72,7 @@ __decorate([
 ], RoomController.prototype, "getOne", null);
 __decorate([
     (0, common_1.Post)("/update"),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)("jwt")),
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_1.Res)()),
     __metadata("design:type", Function),
@@ -76,6 +81,7 @@ __decorate([
 ], RoomController.prototype, "updateRoom", null);
 __decorate([
     (0, common_1.Get)("/delete/:id"),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)("jwt")),
     __param(0, (0, common_1.Req)()),
     __param(1, (0, common_1.Res)()),
     __metadata("design:type", Function),

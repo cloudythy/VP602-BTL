@@ -14,6 +14,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.WaterInvoiceController = void 0;
 const common_1 = require("@nestjs/common");
+const passport_1 = require("@nestjs/passport");
 const water_invoice_schema_1 = require("../../schemas/water-invoice.schema");
 const water_invoice_service_1 = require("../../service/water-invoice.service");
 let WaterInvoiceController = class WaterInvoiceController {
@@ -56,6 +57,7 @@ let WaterInvoiceController = class WaterInvoiceController {
 };
 __decorate([
     (0, common_1.Post)("/create"),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)("jwt")),
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_1.Res)()),
     __metadata("design:type", Function),
@@ -64,6 +66,7 @@ __decorate([
 ], WaterInvoiceController.prototype, "creatWaterInvoice", null);
 __decorate([
     (0, common_1.Get)("/all"),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)("jwt")),
     __param(0, (0, common_1.Res)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
@@ -71,6 +74,7 @@ __decorate([
 ], WaterInvoiceController.prototype, "getAll", null);
 __decorate([
     (0, common_1.Get)("/get/:id"),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)("jwt")),
     __param(0, (0, common_1.Res)()),
     __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),
@@ -79,6 +83,7 @@ __decorate([
 ], WaterInvoiceController.prototype, "getOne", null);
 __decorate([
     (0, common_1.Patch)("/update"),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)("jwt")),
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_1.Res)()),
     __metadata("design:type", Function),
@@ -87,6 +92,7 @@ __decorate([
 ], WaterInvoiceController.prototype, "updateOne", null);
 __decorate([
     (0, common_1.Get)("/delete/:id"),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)("jwt")),
     __param(0, (0, common_1.Req)()),
     __param(1, (0, common_1.Res)()),
     __metadata("design:type", Function),

@@ -9,11 +9,14 @@ import {
   Put,
   Req,
   Res,
+  UseGuards,
 } from "@nestjs/common";
+import { AuthGuard } from "@nestjs/passport";
 import { ElectricInvoice } from "src/schemas/electric-invoice.schema";
 import { EInvoiceService } from "src/service/electric-invoice.service";
 
 @Controller("/api/v1/einvoice")
+@UseGuards(AuthGuard("jwt"))
 export class ElectricInvoiceController {
   constructor(private readonly eInvocieService: EInvoiceService) {}
 
