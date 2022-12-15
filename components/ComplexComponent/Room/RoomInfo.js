@@ -55,12 +55,9 @@ const NormalRoomInfo = (props) => {
 };
 
 const SmallRoomInfo = (props) => {
-    const pressHandler = () => {
-        onPress();
-    };
     const { name, price, address, deposit } = props;
     return (
-        <Pressable style={{ display: 'flex', flexDirection: 'row' }} onPress={pressHandler}>
+        <Pressable onPress={pressHandler} style={{ display: 'flex', flexDirection: 'row' }}>
             <View style={styles.small.image}>
                 <Image
                     resizeMode='cover'
@@ -100,7 +97,6 @@ function RoomInfo (props) {
         numOfPeople,
         deposit,
         service,
-        onPress
     } = props;
     return (
         <Background style={styles.container}>
@@ -113,7 +109,6 @@ function RoomInfo (props) {
                     numOfPeople={numOfPeople}
                     deposit={deposit}
                     service={service}
-                    onPress={onPress}
                 />
             ) : (
                 <SmallRoomInfo
@@ -121,7 +116,6 @@ function RoomInfo (props) {
                     price={price}
                     address={address}
                     deposit={deposit}
-                    onPress={onPress}
                 />
             )}
         </Background>

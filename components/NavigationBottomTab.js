@@ -18,9 +18,7 @@ function NavigationButtonIcons({name, focusedName, size, color, focused})
 export default function NavigationBottom()
 {
 	const Tab = createBottomTabNavigator();
-
 	return (
-		<NavigationContainer>
 			<Tab.Navigator
 				initialRouteName={global.welcomeScreen}
 				screenOptions={styles.navigationSettings}
@@ -87,7 +85,6 @@ export default function NavigationBottom()
 					}}
 				/> 
 			</Tab.Navigator>
-		</NavigationContainer>
     );
 }
 

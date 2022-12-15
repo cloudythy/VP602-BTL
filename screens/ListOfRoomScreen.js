@@ -2,10 +2,6 @@ import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import Search from '../components/Input/Search';
 import RoomInfo from '../components/ComplexComponent/Room/RoomInfo';
 export default function ListOfRoomScreen({navigation}) {
-    const pressHandler = () => {
-        navigation.navigate("Room detail");
-        console.log("abc");
-    };
     return (
         <View style={styles.container}>
             <Search/>
@@ -18,7 +14,7 @@ export default function ListOfRoomScreen({navigation}) {
                     numOfRooms = "3"
                     numOfPeople = "4"
                     deposit = "100"
-                    onPress={()=>{navigation.navigate("Room detail")}}
+                    onPress={()=>navigation.navigate("Room detail")}
 
                 />
                 <RoomInfo

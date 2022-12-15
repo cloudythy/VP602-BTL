@@ -3,17 +3,14 @@ import { Pressable, Text, StyleSheet, View } from "react-native";
 import { COLOR } from "../../constants";
 
 export default function CustomButton(props) {
-    const { type, size, shape, title, onPress, style } = props;
-    const pressHandler = () => {
-        onPress();
-    };
+    const { type, size, shape, title, style } = props;
     const buttonStyleHandler = (type, size, shape) => {
         let color = '#000000';
         let disable = false;
         let backgroundColor;
         let height;
         let borderRadius;
-        let marginBottom;
+        let width;
         switch (type) {
             case 'neutral':
                 backgroundColor = '#EAEDF0';
@@ -48,6 +45,7 @@ export default function CustomButton(props) {
                 break;
             case 'medium':
                 height = 40;
+                width = 30;
                 break;
             case 'small':
                 height = 36;
@@ -77,7 +75,7 @@ export default function CustomButton(props) {
             <Pressable
                 style={[buttonStyleHandler(type, size, shape), style]}
                 disable={disable}
-                onPress={pressHandler}>
+                onPress={props.onPress}>
                 <Text
                     style={{
                         color: color,

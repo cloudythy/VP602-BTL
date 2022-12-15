@@ -45,11 +45,12 @@ export default function RoomDetail(props){
                     <Text style={styles.normal.header}>Preview</Text>
                     <ScrollView
                         horizontal={true}
-                        contentContainerStyle={{paddingRight: '60%'}}
-                    >
-                        <Image source={require('../../../images/Room/RoomDetail.png')} style={styles.normal.image}/>
-                        <Image source={require('../../../images/Room/RoomDetail.png')} style={styles.normal.image}/>
-                        
+                    >      
+                        <Image source={require('../../../images/Room/Room1.png')} /> 
+                        <Image source={require('../../../images/Room/Room2.png')} />  
+                        <Image source={require('../../../images/Room/Room3.png')} />   
+                        <Image source={require('../../../images/Room/Room1.png')} /> 
+                        <Image source={require('../../../images/Room/Room2.png')} />               
                     </ScrollView>
 
                 </View>
@@ -73,7 +74,7 @@ const styles = StyleSheet.create({
     container: {
         marginLeft: '5%',
         marginRight: '5%',
-        paddingBottom: 250,
+        paddingBottom: 200,
     },
     map: {
         width: '100%',
