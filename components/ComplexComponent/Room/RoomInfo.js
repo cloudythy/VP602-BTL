@@ -6,11 +6,8 @@ import Background from '../../Background';
 const NormalRoomInfo = (props) => {
     const { name, price, address, numOfRooms, numOfPeople, deposit, service} =
         props;
-    // const pressHandler = () => {
-    //     onPress();
-    // };
     return (
-        <Pressable onPress={props.onPress}>
+        <View>
             <View style={styles.normal.image}>
                 <Image
                     resizeMode='cover'
@@ -50,14 +47,14 @@ const NormalRoomInfo = (props) => {
                     })}
                 </View> */}
             </View>
-        </Pressable>
+        </View>
     );
 };
 
 const SmallRoomInfo = (props) => {
     const { name, price, address, deposit } = props;
     return (
-        <Pressable onPress={props.onPress} style={{ display: 'flex', flexDirection: 'row' }}>
+        <View style={{ display: 'flex', flexDirection: 'row' }}>
             <View style={styles.small.image}>
                 <Image
                     resizeMode='cover'
@@ -84,7 +81,7 @@ const SmallRoomInfo = (props) => {
                     </Text>
                 </View>
             </View>
-        </Pressable>
+        </View>
     );
 };
 const RoomInfo = (props) => {
@@ -99,6 +96,7 @@ const RoomInfo = (props) => {
         service,
     } = props;
     return (
+        <Pressable onPress={props.onPress}>
         <Background style={styles.container}>
             {type === 'normal' ? (
                 <NormalRoomInfo
@@ -119,6 +117,7 @@ const RoomInfo = (props) => {
                 />
             )}
         </Background>
+        </Pressable>
     );
 };
 const styles = StyleSheet.create({

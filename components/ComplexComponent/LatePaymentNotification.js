@@ -57,7 +57,8 @@ const LatePaymentNotification = (props) => {
 const styles = StyleSheet.create({
   container: {
     padding: 0,
-    flex: 1
+    flex: 1,
+    marginBottom: '50%'
   },
 
   wrapper: {

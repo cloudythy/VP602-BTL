@@ -18,7 +18,7 @@ export default function ListOfRoom({navigation}) {
                     numOfRooms = "3"
                     numOfPeople = "4"
                     deposit = "100"
-                    onPress={pressHandler}
+                    onPress={()=>navigation.navigate("Room Detail")}
 
                 />
                 <RoomInfo
