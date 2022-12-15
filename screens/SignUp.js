@@ -2,7 +2,46 @@ import {View, Text, Image, StyleSheet, Pressable, KeyboardAvoidingView, ScrollVi
 import CustomButton from '../components/Button/CustomButton';
 import InputText from '../components/Input/InputText';
 import {signup} from '../components/Http';
+import {React, useState} from 'react'
 export default function SignUp({navigation}) {
+    const defaultUserInfo = {
+        fullname: {
+            value: "",
+            isValid: true,
+        },
+        phonenumber: {
+            value: "",
+            isValid: true,
+        },
+        username: {
+            value: "",
+            isValid: true,
+        },
+        password: {
+            value: "",
+            isValid: true
+        }
+    }
+    const [userInfo, setUserInfo] = useState(defaultUserInfo);
+    async function submitHandler() {
+        // const data = {
+        //     fullname: userInfo.fullname.value,
+        //     phonenumber: userInfo.phonenumber.value,
+        //     username: userInfo.username.value,
+        //     password: userInfo.password.value
+        // }
+        // setUserInfo(defaultUserInfo);
+        // const response = await signup(signup);
+        navigation.navigate("Sign Up Successfully");
+    }
+    function inputChangedHandler(inputIdentifier, enteredValue) {
+        setUserInfo((currentInput) => {
+          return {
+            ...currentInput,
+            [inputIdentifier]: { value: enteredValue, isValid: true },
+          };
+        });
+    }
     return (
         <ScrollView>
             <KeyboardAvoidingView behavior="position">
@@ -10,16 +49,32 @@ export default function SignUp({navigation}) {
                     <View style={styles.titleContainer}>
                         <Text style={styles.title}> Sign Up </Text>
                     </View>
-                    <InputText name = "fullname"/>
-                    <InputText name = "phonenumber"/>
-                    <InputText name = "username"/>
-                    <InputText name = "password" isSecure={true}/>
-                    <InputText name = "confirm password" isSecure={true}/>
+                    <InputText 
+                        name = "fullname"
+                        onChangeText={inputChangedHandler.bind(this, 'fullname')}
+                    />
+                    <InputText 
+                        name = "phonenumber"
+                        onChangeText={inputChangedHandler.bind(this, 'phonenumber')}
+                    />
+                    <InputText 
+                        name = "username"
+                        onChangeText={inputChangedHandler.bind(this, 'username')}
+                    />
+                    <InputText 
+                        name = "password" 
+                        onChangeText={inputChangedHandler.bind(this, 'password')}
+                        isSecure={true}
+                    />
+                    <InputText 
+                        name = "confirm password" 
+                        isSecure={true}
+                    />
                     <CustomButton 
                         type='important' 
                         title='Sign Up' 
                         size = 'medium'
-                        onPress={() => navigation.navigate("Main Screen")}
+                        onPress={submitHandler}
                     />
                     <View style={styles.textContainer}>
                     <Text>Already a member?</Text>
