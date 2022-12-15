@@ -17,13 +17,15 @@ export default function Login({navigation}) {
     }
     const [userInfo, setUserInfo] = useState(defaultUserInfo);
     async function submitHandler() {
+        console.log("abc");
         const data = {
-            username: userInfo.username.value,
+            phonenumber: userInfo.phonenumber.value,
             password: userInfo.password.value
         }
         setUserInfo(defaultUserInfo);
+        console.log(data);
         const response = await auth(data);
-        console.log(response);
+        
         navigation.navigate("Main Screen");
     }
     function inputChangedHandler(inputIdentifier, enteredValue) {

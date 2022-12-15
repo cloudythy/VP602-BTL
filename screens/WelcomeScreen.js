@@ -36,14 +36,14 @@ const styles = StyleSheet.create({
         paddingTop: '20%',
         paddingLeft: '25%'
     },
-    image: {
-        width: '80%',
-        height: '60%',
-    },
+    // image: {
+    //     width: '80%',
+    //     height: '60%',
+    // },
     rowButton: {
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'space-around',
+        // justifyContent: 'space-around',
         paddingVertical: '28%',
     },
     text: {

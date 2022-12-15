@@ -62,9 +62,8 @@ export async function getAllRoom() {
     return response;
 }
 
-export async function getAllRoom() {
-    const roomList = [];
-    const response =  await axios.get(backend_url + '/get/all');
+export async function getRoom(name) {
+    const response =  await axios.get(backend_url + `/get/all/${name}`);
     console.log(response);
     return response;
 }

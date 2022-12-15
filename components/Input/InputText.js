@@ -6,7 +6,6 @@ function InputText(props) {
     function inputHandler(enteredText) {
         setInput(enteredText);
         props.onChangeText(enteredText);
-        console.log(enteredText);
     }
     return (
         <View>
