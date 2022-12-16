@@ -12,7 +12,7 @@ import { UserModule } from './modules/user/user.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost:27017/Stream'),
+    MongooseModule.forRoot('mongodb://vu:vu@34.87.154.16:27017/RAP?authSource=admin'),
     JwtModule.register({
       secret,
       signOptions: { expiresIn: '2h' },

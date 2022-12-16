@@ -23,7 +23,7 @@ let AppModule = class AppModule {
 AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
-            mongoose_1.MongooseModule.forRoot('mongodb://localhost:27017/Stream'),
+            mongoose_1.MongooseModule.forRoot('mongodb://vu:vu@34.87.154.16:27017/RAP?authSource=admin'),
             jwt_1.JwtModule.register({
                 secret: constants_1.secret,
                 signOptions: { expiresIn: '2h' },
