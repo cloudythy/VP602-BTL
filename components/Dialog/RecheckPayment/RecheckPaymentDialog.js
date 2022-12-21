@@ -7,100 +7,86 @@ import PaymentOption from '../../Button/PaymentOptions';
 import RoomInfo from '../../ComplexComponent/Room/RoomInfo';
 // import TenantInfo from '../../ComplexComponent/TenantInfo';
 import Dialog from '../Dialog';
-
-const RecheckPaymentDialog = props => {
-    const { onOk, onCancel, roomInfo, tenantInfo, totalBill } = props;
-    const { roomName, price, address, deposit, numOfPeople } = roomInfo;
-    // const { tenantName, phone } = tenantInfo;
+export default function RecheckPaymentDialog(props) {
     return (
-        <Modal
-            animationType='fade'
-            visible = {props.onVisible}
-        >
-            <View style={styles.modal}>
-            {/* <Dialog
-                type="2 opt"
-                user="user"
-                onCancel={onCancel}
-                onOk={onOk}
-                cancelText="Cancel"
-                okText="Confirm"
-                style={{ padding: 20 }}>
-                <Text style={styles.title}>Confirm</Text>
-                <View style={styles.roomInfo}>
-                    <RoomInfo
-                        name={roomName}
-                        price={price}
-                        address={address}
-                        deposit={deposit}
-                    />
-                </View>
-                <Text style={{ marginTop: 5 }}>
-                    Tenants (maximum {numOfPeople})
-                </Text>
-                <TenantInfo
-                    name={tenantName}
-                    phone={phone}
-                />
-                <Text style={{ marginTop: 10 }}>Payment method</Text>
-                <View style={styles.payment}>
-                    <PaymentOption type="momo" />
-                    <PaymentOption type="zaloPay" />
-                    <PaymentOption type="viettelPay" />
-                </View>
-                <View style={styles.totalBill}>
-                    <Text>Total bill</Text>
-                    <Text style={{ color: COLOR.user.primaryShade[300] }}>
-                        {totalBill}
-                    </Text>
-                </View>
-            </Dialog> */}
-            <Text> New Tower </Text>
-            <Text> Ngô Diễm Quỳnh </Text>
+        <View style={styles.modalContainer}>
+            <Modal
+                animationType='slide'
+                visible = {props.onVisible}
+                transparent={true}
+            >
+                <View style={styles.modal}>
+                    <Text style={styles.text}> Confirm this room? </Text>
 
-            <View style={styles.button}>
-                <CustomButton onPress={props.onCancel} title="Cancel"/>
-                <CustomButton onPress={props.onConfirm}type="important" size="small" title="Confirm"/>
-            </View>
-            </View>
-        </Modal>
-        
-    );
-};
+                    <View style={styles.button}>
+                        <CustomButton onPress={props.onCancel} title="Cancel"/>
+                        <CustomButton onPress={props.onConfirm}type="important" size="small" title="Confirm"/>
+                    </View>
+                </View>
+                
+            </Modal>
+        </View>
+    )
+}
+
 const styles = StyleSheet.create({
+    modalContainer: {
+        marginTop: '20%',
+        flex: 1, 
+    },
     modal: {
-        marginTop: '40%',
-        marginHorizontal: '10%',
+        marginTop: '175%',
+        height: '100%',
         backgroundColor: 'white',
-        borderRadius: 20,
-        jusifyContent: "center",
-        alignItems: "center",
-        borderRadius: 20,
+        borderRadius: 30,
+        borderTopWidth: 1,
+        borderLeftWidth: 1,
+        borderRightWidth: 1,
         borderColor: 'grey',
         padding: 30,
+    },
+    textContainer: {
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    text: {
+        padding: 10,
+        textAlign: 'center',
+        fontSize: 20,
+		fontWeight: 'bold',
+    },
+    header: {
+		flexDirection: 'row',
+	},
+
+	cancelButton: {
+		borderRadius: 8,
+		borderWidth: 1,
+		borderColor: 'white',
+		marginTop: 5,
+        marginLeft: '8%'
+	},
+
+	cancelButtonText: {
+		paddingVertical:10,
+		paddingHorizontal: 25,
+		fontSize: 12,
+		fontWeight: 'bold',
+        color: '#264F7B'
+	},
+    line: {
+        width: '65%',
+        alignSelf: 'center',
+        height: 0.3,
+        backgroundColor: 'grey',
+        marginVertical: 5
+    },
+    content: {
+        marginTop: 15,
     },
     button: {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
-    },
-    title: {
-        fontSize: 25,
-    },
-    roomInfo: {
-        width: '100%',
-    },
-    payment: {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-    },
-    totalBill: {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginTop: 5,
-        marginBottom: 5,
-    },
-});
-export default RecheckPaymentDialog;
+    }
+})

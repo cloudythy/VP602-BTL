@@ -6,55 +6,61 @@ export default function ListOfRoom({navigation}) {
         console.log("abc");
         navigation.navigate("Room Detail");
     }
+    const roomList = [
+        {
+            buildingName: 'Bcons',
+            name: '',
+            address: 'Hocmon',
+            status: '',
+            type: '',
+            floor: '',
+            pricePerMonth: '3.000.000',
+            numOfBedrooms: 3,
+            capacity: 4,
+        },
+        {
+            buildingName: 'New Tower 2',
+            name: '',
+            address: 'Hocmon',
+            status: '',
+            type: '',
+            floor: '',
+            pricePerMonth: '3.000.000',
+            numOfBedrooms: 1,
+            capacity: 2,
+        },
+        {
+            buildingName: 'Idico',
+            name: '',
+            address: 'Hocmon',
+            status: '',
+            type: '',
+            floor: '',
+            pricePerMonth: '2.000.000',
+            numOfBedrooms: 3,
+            capacity: 4,
+        },
+    ];
     return (
         <View style={styles.container}>
             <Search/>
             <ScrollView>
-                <RoomInfo
-                    type = "normal"
-                    name = "New Tower"
-                    price = "3.000.000"
-                    address = "Hocmon"
-                    numOfRooms = "3"
-                    numOfPeople = "4"
-                    deposit = "100"
-                    onPress={()=>navigation.navigate("Room Detail")}
-
-                />
-                <RoomInfo
-                    type = "normal"
-                    name = "NewTower"
-                    price = "3.000.000"
-                    address = "Hocmon"
-                    numOfRooms = "3"
-                    numOfPeople = "4"
-                    deposit = "100"
-                    onPress={()=>{navigation.navigate("Room detail")}}
-
-                />
-                <RoomInfo
-                    type = "normal"
-                    name = "NewTower"
-                    price = "3.000.000"
-                    address = "Hocmon"
-                    numOfRooms = "3"
-                    numOfPeople = "4"
-                    deposit = "100"
-                    onPress={()=>{navigation.navigate("Room detail")}}
-
-                />
-                <RoomInfo
-                    type = "normal"
-                    name = "NewTower"
-                    price = "3.000.000"
-                    address = "Hocmon"
-                    numOfRooms = "3"
-                    numOfPeople = "4"
-                    deposit = "100"
-                    onPress={()=>{navigation.navigate("Room detail")}}
-
-                />
-                
+                {roomList.map(room => {
+                    console.log("abc")
+                    return(
+                        <RoomInfo
+                        type="normal"
+                        name={room.buildingName}
+                        price={room.pricePerMonth}
+                        address={room.address}
+                        numOfRooms={room.numOfBedrooms}
+                        numOfPeople={room.capacity}
+                        deposit="100"
+                        onPress={() => navigation.navigate('Room Detail', {room: room})}
+                    />
+                    )
+                    
+                })}
                     
 
             </ScrollView>

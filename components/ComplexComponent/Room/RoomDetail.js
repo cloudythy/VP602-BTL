@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     container: {
         marginLeft: '5%',
         marginRight: '5%',
-        paddingBottom: 200,
+        paddingBottom: 300,
     },
     map: {
         width: '100%',

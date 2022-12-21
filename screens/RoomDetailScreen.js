@@ -3,7 +3,7 @@ import RoomDetail from '../components/ComplexComponent/Room/RoomDetail';
 import RecheckPaymentDialog from '../components/Dialog/RecheckPayment/RecheckPaymentDialog';
 import {useState} from 'react';
 
-export default function RoomDetailScreen(){
+export default function RoomDetailScreen(props){
     const roomInfo = {
         roomName: "Newww",
         price: 4000000,
@@ -22,18 +22,18 @@ export default function RoomDetailScreen(){
     };
     const [onModalVisible, setOnModalVisible] = useState(false);
     function confirmHandler() {
-        
+
     }
     return (
         <View>
             <RoomDetail
-                name = "New tower" 
-                price= "3000000" 
-                address ="Hocmon" 
-                numOfRooms = "3" 
-                numOfPeople = "4" 
+                name = {props.route.params.room.buildingName}
+                price= {props.route.params.room.pricePerMonth} 
+                address = {props.route.params.room.address} 
+                numOfRooms = {props.route.params.room.numOfBedrooms}
+                numOfPeople = {props.route.params.room.capacity}
                 deposit = "1000000" 
-                description = "abcde"
+                description = "Beautiful view with amazing accomodation"
                 onRegister={() => setOnModalVisible(true)}
             />
             <RecheckPaymentDialog 

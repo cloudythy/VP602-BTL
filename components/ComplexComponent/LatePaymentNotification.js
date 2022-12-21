@@ -38,17 +38,18 @@ const LatePaymentNotification = (props) => {
   };
   return (
     <Background>
+        {console.log('adsdsdas', mapType())}
       <View style={{ display: "flex", flexDirection: "row" }}>
-        {mapType().icon}
+      <View style={styles.icon}></View>
         <View style={styles.info}>
           <View style={styles.wrapper}>
             <Text style={styles.title}>{mapType().title}</Text>
-            <View>
+            {/* <View>
               <Text style={styles.text}>{date}</Text>
               <Text style={styles.text}>{time}</Text>
-            </View>
+            </View> */}
           </View>
-          <Text style={styles.text}>{mapType().text}</Text>
+          <Text style={styles.text}>Please pay your bill</Text>
         </View>
       </View>
     </Background>
@@ -82,7 +83,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    fontWeight: 500,
+    fontWeight: 'bold',
     color: COLOR.common.accentShade[200]
   },
   text: {

@@ -3,6 +3,7 @@ import CustomButton from '../components/Button/CustomButton';
 import InputText from '../components/Input/InputText';
 import {auth} from '../components/Http';
 import {React, useState} from 'react'
+import LoginFailModal from '../components/Dialog/LoginFailModal'
 
 export default function Login({navigation}) {
     const defaultUserInfo = {
@@ -16,17 +17,23 @@ export default function Login({navigation}) {
         }
     }
     const [userInfo, setUserInfo] = useState(defaultUserInfo);
+    const [failModal, setFailModal] = useState(false);
     async function submitHandler() {
         console.log("abc");
         const data = {
             phonenumber: userInfo.phonenumber.value,
             password: userInfo.password.value
         }
-        setUserInfo(defaultUserInfo);
-        console.log(data);
-        const response = await auth(data);
+        // setUserInfo(defaultUserInfo);
+        // const response = await auth(data);
+        // if (typeof(response) === 'object') {
+            navigation.navigate("Main Screen");
+        // }
+        // else {
+        //     setFailModal(true);
+        //     setTimeout(() => {setFailModal(false)}, 3000) 
+        // }
         
-        navigation.navigate("Main Screen");
     }
     function inputChangedHandler(inputIdentifier, enteredValue) {
         setUserInfo((currentInput) => {
@@ -39,11 +46,14 @@ export default function Login({navigation}) {
     return (
         <ScrollView>
         <KeyboardAvoidingView behavior="position">
+                
             <View style = {styles.container}>
                 {/* <View style={styles.imageContainer}>
                     <Image source={require('../images/Logo.png')} style={styles.image}/>
                 </View> */}
-
+                <View style={styles.titleContainer}>
+                    <Text style={styles.title}> Log In </Text>
+                </View>
                 <InputText 
                     name = "phonenumber"
                     onChangeText={inputChangedHandler.bind(this, 'phonenumber')}
@@ -68,7 +78,9 @@ export default function Login({navigation}) {
                 </View>
             </View>
         </KeyboardAvoidingView>
+        <LoginFailModal onVisible={failModal}/>
         </ScrollView>
+
     );
 }
 
@@ -100,5 +112,14 @@ const styles = StyleSheet.create({
     },
     textPress:{
         color: '#FDC52B'
-    }
+    },
+    title: {
+        color: '#2753CD',
+        fontWeight: 'bold',
+        fontSize: 30,
+    },
+    titleContainer: {
+        justifyContent: 'center',
+        textAlign: 'center',
+    },
 })

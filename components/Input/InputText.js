@@ -27,7 +27,7 @@ function InputText(props) {
 const styles = StyleSheet.create({
     container: {
         borderWidth: 0.18,
-        borderColor: 'grey',
+        borderColor: 'black',
         borderRadius: 5,
         margin: 10,
         marginLeft: 25,

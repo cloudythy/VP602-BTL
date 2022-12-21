@@ -9,22 +9,24 @@ const HomeScreenButton = (props) => {
         onPress();
     };
     return (
-        <Background style={{ width: 179 }}>
-            <Pressable style={styles.container} onPress={pressHandler}>
+        
+            <Background style={{paddingLeft: 0, paddingTop: 0}}>
+                <Pressable style={styles.container} onPress={pressHandler}>
                 <View style={styles.image}>
                     {image}
                 </View>
                 <Text style={styles.text}>
                     {name}
                 </Text>
-            </Pressable>
-        </Background>
+                </Pressable>
+            </Background>
+        
     );
 };
 
 const styles = StyleSheet.create({
     container: {
-        width: 169,
+        width: 179,
         height: 190,
         backgroundColor: 'white',
         borderRadius: 20
@@ -33,11 +35,12 @@ const styles = StyleSheet.create({
         lignItems: 'center',
 		justifyContent: 'center',
         height: 154,
-        paddingLeft: '15%',
+        paddingLeft: '8%',
     },
     text: {
         paddingLeft: '10%',
-        color: '#87670E'
+        color: '#87670E',
+        marginBottom: '20%'
     }
 });
 export default HomeScreenButton;

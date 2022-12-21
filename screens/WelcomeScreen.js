@@ -16,7 +16,7 @@ export default function WelcomeScreen() {
             </View> */}
             <Text style={styles.text}>Xin chào, Ngô Diễm Quỳnh </Text>
             
-            <Background>
+            <View>
                 <View style={styles.rowButton}>
                     <HomeScreenButton name='My room' image={image[0]} onPress={()=>console.log("abc")}/>
                     <HomeScreenButton name='My electric&water' image={image[1]}  onPress={()=>console.log("abcd")}/>
@@ -27,7 +27,7 @@ export default function WelcomeScreen() {
                 </View>
                 
                 
-            </Background>
+            </View>
         </View>
     );
 }
@@ -36,10 +36,10 @@ const styles = StyleSheet.create({
         paddingTop: '20%',
         paddingLeft: '25%'
     },
-    // image: {
-    //     width: '80%',
-    //     height: '60%',
-    // },
+    image: {
+        width: '80%',
+        height: '60%',
+    },
     rowButton: {
         flex: 1,
         flexDirection: 'row',
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
         paddingVertical: '28%',
     },
     text: {
-        marginTop: '40%',
+        marginTop: '25%',
         marginLeft: '10%',
         fontSize: 18,
     }

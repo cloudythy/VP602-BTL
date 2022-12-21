@@ -72,7 +72,7 @@ export default function NavigationBottom()
 					name = {global.userInfoScreen} 
 					component = {UserInfoScreen}
 					options = {{
-						tabBarLabel: 'Tải văn bản',
+						tabBarLabel: 'User',
 						tabBarIcon: ({focused, color, size}) => ( 
 							<NavigationButtonIcons 
 									name = {'person-circle'} 

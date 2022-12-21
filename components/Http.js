@@ -1,5 +1,5 @@
 import axios from 'axios';
-const backend_url = 'http://172.16.2.62/document';
+const backend_url = 'http://192.168.236.118:3000/api/v1';
 
 export async function auth(userInfo) {
     let response;
@@ -7,6 +7,7 @@ export async function auth(userInfo) {
         "phonenumber": userInfo.phonenumber,
         "password": userInfo.password,
     }
+    console.log(dataToServer);
     await axios({
         method: 'POST',
         url: backend_url + '/login',
@@ -57,13 +58,13 @@ export async function signup(userInfo) {
 
 export async function getAllRoom() {
     const roomList = [];
-    const response =  await axios.get(backend_url + '/get/all');
-    console.log(response);
+    const response =  await axios.get(backend_url + '/room/get/all');
+    console.log("123" + response);
     return response;
 }
 
 export async function getRoom(name) {
-    const response =  await axios.get(backend_url + `/get/all/${name}`);
-    console.log(response);
+    const response =  await axios.get(backend_url + `/room/get/all/${name}`);
+    // console.log(response);
     return response;
 }

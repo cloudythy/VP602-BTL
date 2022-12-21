@@ -28,13 +28,18 @@ export default function NotificationScreen() {
     return (
         <View>
             <Search />
-            {notificationList.map(item => (
+            {/* {notificationList.map(item => (
                 <LatePaymentNotification
                     time={item.time}
                     date={item.date}
                     type={item.type}
                 />
-            ))}
+            ))} */}
+            <LatePaymentNotification
+                    time={'222'}
+                    date={'222'}
+                    type={'late payment'}
+                />
         </View>
     );
 }
